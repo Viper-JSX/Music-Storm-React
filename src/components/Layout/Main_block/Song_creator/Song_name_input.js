@@ -1,6 +1,6 @@
-function SongNameInput({ handleSongNameChange }){
+function SongNameInput({ songName, handleSongNameChange }){
     return(
-        <input className="songNameInput" type="text" onChange={handleSongNameChange} />
+        <input className="songNameInput" type="text" onChange={handleSongNameChange} value={songName} />
     );
 }
 

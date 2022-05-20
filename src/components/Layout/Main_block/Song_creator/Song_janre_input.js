@@ -1,8 +1,9 @@
-function SongJanreInput({ janres, handleSongJanreChange }){
+function SongJanreInput({ songJanre, janres, handleSongJanreChange }){
+    console.log(songJanre)
     return(
-        <select className="songJanreInput" onChange={handleSongJanreChange}>
+        <select className="songJanreInput" onChange={handleSongJanreChange} value={songJanre}>
             {
-                janres.map((janre) => <option value={janre.name} >{janre.name}</option>)
+                janres.map((janre) => <option value={janre.name.toLowerCase()} >{janre.name}</option>)
             }
         </select>
     )

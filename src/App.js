@@ -412,8 +412,24 @@ function App(){
         console.log("Create", newSong);
     }
 
-    function handleSongEdit(editedSong){
-        console.log("Edit", editedSong);
+    function handleSongEdit({ editedSong, oldSongName }){
+        console.log("Edit", editedSong, oldSongName);
+        if(!editedSong.name || !editedSong.janre || !editedSong.src){
+            console.log("Fill all the fields")
+            return;
+        }
+        for(let i = 0; i < songs.length; i++){
+            if(songs[i].name === oldSongName){
+                songs[i].changeName(editedSong.name);
+                songs[i].changeJanre(editedSong.janre);
+                songs[i].changeIconSrc(editedSong.iconSrc);
+                songs[i].changeSrc(editedSong.src);
+                setSongsToDisplay(songs.slice(0, 10));
+                break;
+            }
+        }
+
+
     }
 
     return(

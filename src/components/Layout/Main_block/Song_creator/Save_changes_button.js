@@ -1,7 +1,7 @@
-function SaveChangesButton({ mode, song, handleSongCreate, handleSongEdit }){
+function SaveChangesButton({ mode, song, oldSongName, handleSongCreate, handleSongEdit }){
     console.log(mode)
     return(
-        <button onClick={mode == "create" ? () => handleSongCreate(song) : () => handleSongEdit(song)}>{mode == "create" ? "Create" : "Save changes"}</button>
+        <button onClick={mode == "create" ? () => handleSongCreate(song) : () => handleSongEdit({ editedSong: song, oldSongName: oldSongName })}>{mode == "create" ? "Create" : "Save changes"}</button>
     );
 }
 

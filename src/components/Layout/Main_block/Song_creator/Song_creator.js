@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useMemo } from "react";
 import Song from '../../../../Classes/Song.js';
 import SongFileInput from "./Song_file_input";
 import SongIconInput from "./Song_icon_input";
@@ -12,6 +13,10 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     const songToEdit = location.state.songToEdit;
     const mode = location.state.mode;
     const [song, setSong] = useState(songToEdit ? songToEdit : new Song());
+
+
+    const oldSongName = useMemo(() => song.name.split("").join(""));
+    
     //console.log(song)//.state.mode)
     console.log(handleSongEdit, handleSongCreate)
 
@@ -47,11 +52,11 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     return(
         <div>
             <h1>{mode == "create" ? "Create" : "Edit"}</h1>
-            <SongNameInput  handleSongNameChange={handleSongNameChange} />
-            <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} />
-            <SongIconInput  handleSongIconChnage={handleSongIconChange} />
-            <SongFileInput  handleSongFileChnage={handleSongFileChange} />
-            <SaveChangesButton mode={mode} song={song} handleSongCreate={handleSongCreate} handleSongEdit={handleSongEdit} />
+            <SongNameInput  handleSongNameChange={handleSongNameChange} songName={song.name} />
+            <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} songJanre={song.janre} />
+            <SongIconInput  handleSongIconChnage={handleSongIconChange} songIconSrc={song.iconSrc} />
+            <SongFileInput  handleSongFileChnage={handleSongFileChange} songSrc={song.src} />
+            <SaveChangesButton mode={mode} song={song} oldSongName={oldSongName} handleSongCreate={handleSongCreate} handleSongEdit={handleSongEdit} />
         </div>
     );
 }
