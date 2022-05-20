@@ -27,10 +27,10 @@ import Player from '../Player/Player.js';
 import Footer from './Footer/Footer';
 import SongCreator from './Main_block/Song_creator/Song_creator.js';
 
-function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, hanldeJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleRegister }){
+function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, hanldeJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleRegister }){
 	const user = useUser();
 	const LayoutMainBlock = (<MainBlock songsToDisplay={songsToDisplay} topics={topics} handlePlay={handlePlay} handleTagChange={handleTagChange} handleAddToFavourite={handleAddToFavourite} />);
-
+	
 	return(
 		<div id="layoutWindow">
 			<Header handleThemeChange={handleThemeChange}/>
@@ -46,8 +46,8 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 					}>
 
 					</Route>
-					<Route path="music-list/create" element={<SongCreator />} />
-					<Route path="music-list/edit/:songName" element={<SongCreator />} />
+					<Route path="music-list/create" element={<SongCreator handleSongCreate={handleSongCreate} />} />
+					<Route path="music-list/edit/:songName" element={<SongCreator handleSongEdit={handleSongEdit} />} />
 					
 					<Route path="playlists" >
 						<Route path="" element={<UserPlaylists handlePlaylistOpen={handlePlaylistOpen} />} />

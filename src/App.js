@@ -401,6 +401,14 @@ function App(){
         navigate(cameFrom);
     };
 
+    function handleSongCreate(newSong){
+        console.log("Create", newSong);
+    }
+
+    function handleSongEdit(editedSong){
+        console.log("Edit", editedSong);
+    }
+
     return(
         <ThemeContext.Provider value={theme}>
         <UserContext.Provider value={user}>
@@ -426,6 +434,9 @@ function App(){
                     handleTagChange={handleTagChange} 
                     handleAddToFavourite={handleAddToFavourite}
                     handleRemoveFromFavourite={handleRemoveFromFavourite}
+
+                    handleSongCreate={handleSongCreate}
+                    handleSongEdit={handleSongEdit}
 
                     handleAddToPlaylist={handleAddToPlaylist}
                     handleRemoveFromPlaylist={handleRemoveFromPlaylist}
