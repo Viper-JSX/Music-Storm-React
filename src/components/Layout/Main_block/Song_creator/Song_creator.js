@@ -7,7 +7,7 @@ import SongJanreInput from "./Song_janre_input";
 import SongNameInput from "./Song_name_input";
 import SaveChangesButton from "./Save_changes_button.js";
 
-function SongCreator({ handleSongCreate, handleSongEdit }){
+function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     const location = useLocation();
     const songToEdit = location.state.songToEdit;
     const mode = location.state.mode;
@@ -27,7 +27,6 @@ function SongCreator({ handleSongCreate, handleSongEdit }){
     }
 
     function handleSongFileChange(event){
-        console.log("File", event.target);
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = (readerEvent) => {
@@ -37,7 +36,6 @@ function SongCreator({ handleSongCreate, handleSongEdit }){
     }
 
     function handleSongIconChange(event){
-        console.log("Icon", event.target);
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = (readerEvent) => {
@@ -50,9 +48,9 @@ function SongCreator({ handleSongCreate, handleSongEdit }){
         <div>
             <h1>{mode == "create" ? "Create" : "Edit"}</h1>
             <SongNameInput  handleSongNameChange={handleSongNameChange} />
-            <SongJanreInput handleSongJanreChange={handleSongJanreChange} />
-            <SongFileInput  handleSongFileChnage={handleSongFileChange} />
+            <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} />
             <SongIconInput  handleSongIconChnage={handleSongIconChange} />
+            <SongFileInput  handleSongFileChnage={handleSongFileChange} />
             <SaveChangesButton mode={mode} song={song} handleSongCreate={handleSongCreate} handleSongEdit={handleSongEdit} />
         </div>
     );

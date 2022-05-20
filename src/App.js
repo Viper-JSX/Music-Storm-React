@@ -402,6 +402,13 @@ function App(){
     };
 
     function handleSongCreate(newSong){
+        if(!newSong.name || !newSong.janre || !newSong.src){
+            console.log("Fill all the fields")
+            return;
+        }
+
+        songs.push(newSong);
+        setSongsToDisplay(songs.slice(0, 10));
         console.log("Create", newSong);
     }
 

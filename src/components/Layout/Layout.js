@@ -46,8 +46,8 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 					}>
 
 					</Route>
-					<Route path="music-list/create" element={<SongCreator handleSongCreate={handleSongCreate} />} />
-					<Route path="music-list/edit/:songName" element={<SongCreator handleSongEdit={handleSongEdit} />} />
+					<Route path="music-list/create" element={<SongCreator handleSongCreate={handleSongCreate} janres={janres} />} />
+					<Route path="music-list/edit/:songName" element={<SongCreator handleSongEdit={handleSongEdit} janres={janres} />} />
 					
 					<Route path="playlists" >
 						<Route path="" element={<UserPlaylists handlePlaylistOpen={handlePlaylistOpen} />} />
