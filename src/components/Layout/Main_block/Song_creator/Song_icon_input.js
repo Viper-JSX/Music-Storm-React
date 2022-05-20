@@ -1,6 +1,6 @@
-function SongIconInput(){
+function SongIconInput({ handleSongIconChnage }){
     return(
-        <input className="songIconInput" type="file" />
+        <input className="songIconInput" type="file" onChange={handleSongIconChnage} />
     );
 }
 

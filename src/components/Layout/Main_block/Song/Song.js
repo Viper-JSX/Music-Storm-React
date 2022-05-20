@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import OpenSongEditor from './Open_song_editor';
 import SongOptions from './Song_options';
 
 function Song({ song, playlistName, handlePlay, handleAddToFavourite, handleRemoveFromFavourite, handleRemoveFromPlaylist }){
@@ -18,6 +19,7 @@ function Song({ song, playlistName, handlePlay, handleAddToFavourite, handleRemo
 					<div className="addToFavButton" onClick={ handleAddToFavourite ?  () => handleAddToFavourite(song) :() => handleRemoveFromFavourite(song) }>{ handleAddToFavourite ?  "To fav" : "Remove" }</div>
 				}
 				<div onClick={() => navigate("/music/add-to-playlist", {replace: true, state: {songToPlaylist: song} })}>To playlist</div>
+				<OpenSongEditor song={song} />
 			</SongOptions>
 		</div>
 	)

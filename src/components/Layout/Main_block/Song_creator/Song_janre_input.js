@@ -1,6 +1,6 @@
-function SongJanreInput(){
+function SongJanreInput({ handleSongJanreChange }){
     return(
-        <select>
+        <select className="songJanreInput" onChange={handleSongJanreChange}>
 
         </select>
     )

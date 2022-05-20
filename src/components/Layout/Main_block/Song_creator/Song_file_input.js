@@ -1,6 +1,6 @@
-function SongFileInput(){
+function SongFileInput({ handleSongFileChnage }){
     return(
-        <input className="songFileInput" type="file" />
+        <input className="songFileInput" type="file" onChange={handleSongFileChnage} />
     );
 }
 

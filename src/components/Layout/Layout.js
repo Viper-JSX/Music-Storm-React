@@ -25,6 +25,7 @@ import Achievements from './Profile/Achievements/Achievements';
 import JanresList from './Janres_list/Janres_list.js';
 import Player from '../Player/Player.js';
 import Footer from './Footer/Footer';
+import SongCreator from './Main_block/Song_creator/Song_creator.js';
 
 function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, hanldeJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleRegister }){
 	const user = useUser();
@@ -45,6 +46,8 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 					}>
 
 					</Route>
+					<Route path="music-list/create" element={<SongCreator />} />
+					<Route path="music-list/edit/:songName" element={<SongCreator />} />
 					
 					<Route path="playlists" >
 						<Route path="" element={<UserPlaylists handlePlaylistOpen={handlePlaylistOpen} />} />

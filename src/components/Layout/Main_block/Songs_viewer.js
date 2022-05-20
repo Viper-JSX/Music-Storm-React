@@ -1,6 +1,7 @@
 import Song from './Song/Song';
 import Search from '../Header/Search';
 import JanresListToggle from '../Janres_list/Janres_list_toggle';
+import OpenSongCreator from './Open_song_creator';
 
 function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresListToggle, handleAddToFavourite }){
 	return(
@@ -8,6 +9,7 @@ function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresLis
 			{/*<div>*/}
 				<JanresListToggle handleJanresListToggle={handleJanresListToggle} />
 				<Search handleSearch={handleSearch} />
+				<OpenSongCreator />
 			{/*</div>*/}
 			<div id="songsContainer">
 				{
