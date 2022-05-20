@@ -1,12 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useMemo } from "react";
-import Song from '../../../../Classes/Song.js';
-import SongFileInput from "./Song_file_input";
-import SongIconInput from "./Song_icon_input";
-import SongJanreInput from "./Song_janre_input";
-import SongNameInput from "./Song_name_input";
-import SaveChangesButton from "./Save_changes_button.js";
+import Song from "../../../../Classes/Song.js";
+import SongCreatorTools from "./Song_creator_tools/Song_creator_tools.js";
+import SongPreview from "./Song_preview.js";
+import SaveChangesButton from './Save_changes_button.js';
 
 function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     const location = useLocation();
@@ -16,7 +14,7 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
 
 
     const oldSongName = useMemo(() => song.name.split("").join(""));
-    
+
     //console.log(song)//.state.mode)
     console.log(handleSongEdit, handleSongCreate)
 
@@ -50,13 +48,25 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     }
 
     return(
-        <div>
+        <div id="songCreator">
             <h1>{mode == "create" ? "Create" : "Edit"}</h1>
-            <SongNameInput  handleSongNameChange={handleSongNameChange} songName={song.name} />
-            <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} songJanre={song.janre} />
-            <SongIconInput  handleSongIconChnage={handleSongIconChange} songIconSrc={song.iconSrc} />
-            <SongFileInput  handleSongFileChnage={handleSongFileChange} songSrc={song.src} />
-            <SaveChangesButton mode={mode} song={song} oldSongName={oldSongName} handleSongCreate={handleSongCreate} handleSongEdit={handleSongEdit} />
+            <SongCreatorTools 
+                song={song} 
+                janres={janres}
+                handleSongNameChange={handleSongNameChange} 
+                handleSongJanreChange={handleSongJanreChange} 
+                handleSongIconChange={handleSongIconChange} 
+                handleSongFileChange={handleSongFileChange} 
+            />
+
+            <SongPreview song={song}/>
+            <SaveChangesButton
+                mode={mode} 
+                song={song} 
+                oldSongName={oldSongName} 
+                handleSongCreate={handleSongCreate} 
+                handleSongEdit={handleSongEdit} 
+            />
         </div>
     );
 }

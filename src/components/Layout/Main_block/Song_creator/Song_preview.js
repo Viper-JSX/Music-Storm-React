@@ -1,6 +1,6 @@
 function SongPreview(){
     return(
-        <div></div>
+        <div>Preview</div>
     );
 }
 
