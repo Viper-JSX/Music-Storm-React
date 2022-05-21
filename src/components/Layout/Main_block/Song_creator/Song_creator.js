@@ -5,6 +5,7 @@ import Song from "../../../../Classes/Song.js";
 import SongCreatorTools from "./Song_creator_tools/Song_creator_tools.js";
 import SongPreview from "./Song_preview/Song_preview.js";
 import SaveChangesButton from './Save_changes_button.js';
+import SongCreatorToolsAndSongPreview from "./Song_creator_tools_and_preview.js";
 
 function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     const location = useLocation();
@@ -50,7 +51,8 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     return(
         <div id="songCreator">
             <h1>{mode == "create" ? "Create" : "Edit"}</h1>
-            <SongCreatorTools 
+            
+            {/*<SongCreatorTools 
                 song={song} 
                 janres={janres}
                 handleSongNameChange={handleSongNameChange} 
@@ -60,6 +62,18 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
             />
 
             <SongPreview song={song}/>
+
+            */}
+            
+            <SongCreatorToolsAndSongPreview
+                song={song} 
+                janres={janres}
+                handleSongNameChange={handleSongNameChange} 
+                handleSongJanreChange={handleSongJanreChange} 
+                handleSongIconChange={handleSongIconChange} 
+                handleSongFileChange={handleSongFileChange} 
+            />
+
             <SaveChangesButton
                 mode={mode} 
                 song={song} 

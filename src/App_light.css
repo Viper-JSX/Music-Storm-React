@@ -600,6 +600,28 @@ header{
     transform: translateX(-130%);
 }
 
+#songCreatorToolsAndSongPreview{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#songCreatorTools{
+    
+}
+
+#songPreview{
+
+}
+
+.saveChangesButton{
+    height: 20px;
+    align-self: end;
+}
+
+/******/
+
 /*Playlist*/
 #userPlaylists{
     border-radius: 1rem;

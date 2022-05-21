@@ -7,8 +7,11 @@ function SongCreatorTools({ song, janres, handleSongNameChange, handleSongJanreC
     return(
         <div id="songCreatorTools">
             <SongNameInput  handleSongNameChange={handleSongNameChange} songName={song.name} />
+            <br />
             <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} songJanre={song.janre} />
+            <br />
             <SongIconInput  handleSongIconChnage={handleSongIconChange} songIconSrc={song.iconSrc} />
+            <br />
             <SongFileInput  handleSongFileChnage={handleSongFileChange} songSrc={song.src} />
         </div>
     );
