@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useMemo } from "react";
 import Song from "../../../../Classes/Song.js";
 import SongCreatorTools from "./Song_creator_tools/Song_creator_tools.js";
-import SongPreview from "./Song_preview.js";
+import SongPreview from "./Song_preview/Song_preview.js";
 import SaveChangesButton from './Save_changes_button.js';
 
 function SongCreator({ janres, handleSongCreate, handleSongEdit }){
