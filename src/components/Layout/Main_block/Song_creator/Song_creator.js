@@ -51,20 +51,7 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
     return(
         <div id="songCreator">
             <h1>{mode == "create" ? "Create" : "Edit"}</h1>
-            
-            {/*<SongCreatorTools 
-                song={song} 
-                janres={janres}
-                handleSongNameChange={handleSongNameChange} 
-                handleSongJanreChange={handleSongJanreChange} 
-                handleSongIconChange={handleSongIconChange} 
-                handleSongFileChange={handleSongFileChange} 
-            />
 
-            <SongPreview song={song}/>
-
-            */}
-            
             <SongCreatorToolsAndSongPreview
                 song={song} 
                 janres={janres}

@@ -6,6 +6,7 @@ import SongNameInput from "./Song_name_input";
 function SongCreatorTools({ song, janres, handleSongNameChange, handleSongJanreChange, handleSongIconChange, handleSongFileChange }){
     return(
         <div id="songCreatorTools">
+            <h2>Song info</h2>
             <SongNameInput  handleSongNameChange={handleSongNameChange} songName={song.name} />
             <br />
             <SongJanreInput handleSongJanreChange={handleSongJanreChange} janres={janres} songJanre={song.janre} />
