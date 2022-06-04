@@ -4,10 +4,12 @@ function OpenSongEditor({ song }){
     const songPathName = song.name.replace(" ", "-").toLowerCase();
 
     return(
-        <NavLink 
-            to={{pathname: `edit/${songPathName}`}}
-            state={{mode: "edit", songToEdit: song}}>
-                <button id="openSongEditor">Create song</button>
+        <NavLink className="openSongEditor"
+        to={{pathname: `edit/${songPathName}`}}
+        state={{mode: "edit", songToEdit: song}}>
+            <div className="openSongEditor">
+                <b style={{color: 'var(--standardLightTextColor);'}}>Edit</b>
+            </div>
         </NavLink>
     );
 }

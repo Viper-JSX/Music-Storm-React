@@ -841,12 +841,12 @@ header{
     z-index: 1;
 }
 
-.songOptions .options > div{
+.songOptions .options > div, .openSongEditor{
     border-top: var(--standardBorderStyle);
 }
 
-.songOptions .options > div:hover{
-    background: red;
+.songOptions .options > div:hover, .openSongEditor:hover{
+    background: var(--highlightedBackgroundColor);
 }
 
 .songOptions .options  button{
@@ -864,6 +864,13 @@ header{
     /*display: none;*/
 }
 
+#openSongEditor{
+    text-decoration: none;
+}
+
+#openSongEditor:visited{
+    background-color: red;
+}
 
 #someBlock{
     width: 150px;
@@ -1237,7 +1244,9 @@ p{
 @media screen and (max-width: 500px){
     #janresListAndSlideButtons{
         width: 50%;
-        height: 100vh;
+        /*height: 100vh;
+        max-height: 100vh;*/
+        height: 200px;
         min-width: 300px;
         margin: 0;
         position: fixed;
