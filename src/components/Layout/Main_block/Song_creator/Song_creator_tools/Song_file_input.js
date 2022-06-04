@@ -1,6 +1,9 @@
 function SongFileInput({ songSrc, handleSongFileChnage }){
     return(
-        <input className="songFileInput" type="file" onChange={handleSongFileChnage} /*value={songSrc}*/ />
+        <>
+            <label className="songFileInputLabel" for="songFileInput">Select Song file</label>
+            <input id="songFileInput" className="songFileInput" type="file" onChange={handleSongFileChnage} /*value={songSrc}*/ />
+        </>
     );
 }
 
