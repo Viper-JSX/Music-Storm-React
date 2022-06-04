@@ -299,6 +299,12 @@ function App(){
                     isPlaying: false
                 }
             )
+            for(let i = 0; i < songs.length; i++){
+                if(songs[i].name == playingSong.name){
+                    songs[i].isPlaying = false;
+                    break;
+                }
+            }
             return;
         }
 
