@@ -733,8 +733,6 @@ header{
 }
 
 .saveChangesButton:hover{
-    width: 6rem;
-    height: 2.5rem;
     background: var(--highlightedBackgroundColor);
 }
 
@@ -797,6 +795,11 @@ header{
     align-items: center;
 }
 
+.song:hover{
+    background: var(--darkBackgroundColor);
+    cursor: pointer;
+}
+
 .song:first-child{
     /*border-top: var(--standardBorderStyle);*/
 }
@@ -809,6 +812,7 @@ header{
 .song > .playButton{
     width: 1.8rem;
     height: 1.5rem;
+    margin-left: 1rem;
     color: var(--standardLightTextColor);
     background: var(--lightDarkBackgroundColor);
     border-radius: 0.2rem;
