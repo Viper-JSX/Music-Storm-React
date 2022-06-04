@@ -7,7 +7,7 @@ function OpenSongEditor({ song }){
         <NavLink 
             to={{pathname: `edit/${songPathName}`}}
             state={{mode: "edit", songToEdit: song}}>
-                <button>Create song</button>
+                <button id="openSongEditor">Create song</button>
         </NavLink>
     );
 }

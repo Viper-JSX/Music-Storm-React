@@ -5,7 +5,9 @@ function OpenSongCreator(){
         <NavLink 
             to={{pathname: "create"}}
             state={{mode: "create"}}>
-                <button>Create song</button>
+                <button id="openSongCreator" title='Create a song'>
+                    <b>+</b>
+                </button>
         </NavLink>
     );
 }

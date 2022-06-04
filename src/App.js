@@ -418,6 +418,7 @@ function App(){
             console.log("Fill all the fields")
             return;
         }
+
         for(let i = 0; i < songs.length; i++){
             if(songs[i].name === oldSongName){
                 songs[i].changeName(editedSong.name);
@@ -428,8 +429,6 @@ function App(){
                 break;
             }
         }
-
-
     }
 
     return(
