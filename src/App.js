@@ -12,17 +12,17 @@ import UserContext from './context/User_context.js';
 import Layout from './components/Layout/Layout';
 import User from './Classes/User';
 
-require('./Files/Images/Janre_images/bluse.png')
 
 let janres = [
+    {name: "All", backgroundImage: require('./Files/Images/Janre_images/all.png')}, 
     {name: "Rock", backgroundImage:  "https://rocknrollmetalart.files.wordpress.com/2015/01/rock-star.jpg"}, 
     {name:"Jazz",backgroundImage: require('./Files/Images/Janre_images/jazz.png')/*"https://m.media-amazon.com/images/I/618MOXldDfL._SS500_.jpg"*/}, 
     {name: "Bluse", backgroundImage: "https://image.shutterstock.com/image-illustration/musician-guitar-performer-blues-jazz-260nw-1209032083.jpg"}, 
     {name: "Hip-Hop", backgroundImage: "https://images.all-free-download.com/images/graphiclarge/hip_hop_theme_vector_154134.jpg"}, 
+    {name: "Rap", backgroundImage: require('./Files/Images/Janre_images/rap.png')}, 
+    {name: "Clubnyak", backgroundImage: require('./Files/Images/Janre_images/clubnyak.png')}, 
+    {name: "Disco", backgroundImage: require('./Files/Images/Janre_images/disco.png')},
     {name: "Rocki", backgroundImage: ""}, 
-    {name: "Rep", backgroundImage: ""}, 
-    {name: "Clubnyak", backgroundImage: ""}, 
-    {name: "Disco", backgroundImage: ""}
 ];
 
 let topics = ["Top 100", "Summer", "For fun", "Relax", "For peace"];
@@ -253,6 +253,11 @@ function App(){
     }
 
     function handleJanreChange(janre){
+        if(janre.name.toLowerCase() == "all"){
+            setSongsToDisplay(songs);
+            return;
+        }
+
         let newList = songs.filter((song) => {
             return song.janre.toLowerCase() == janre.name.toLowerCase();
         })
@@ -315,9 +320,11 @@ function App(){
     }
 
     
-    function hanldeJanresListSlide({ side, janresListRef }){
+    function hanldeJanresListSlide({ side, janresListRef, event }){
         let marginLeft = getComputedStyle(janresListRef.current).marginLeft;
-        //console.log("before:", displayJanresRange);
+        event.target.style.background = "var(--highlightedBackgroundColor)";
+        setTimeout(() => event.target.style.background = "var(--middleDarkBackgroundColor)", 200)
+
         if(side == "left" && displayJanresRange.l > 0){
             setDisplayJanresRange({ l: --displayJanresRange.l, h: --displayJanresRange.h});
         }
@@ -325,7 +332,6 @@ function App(){
             setDisplayJanresRange({ l: ++displayJanresRange.l, h: ++displayJanresRange.h + 1});
         }
         janresListRef.current.style.marginLeft = `${displayJanresRange.l * -janresListRef.current.querySelector("div").offsetWidth}px`;
-        //console.log("after:", displayJanresRange.l + 1);
 
     };
 

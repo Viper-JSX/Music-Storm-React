@@ -8,7 +8,7 @@ function JanresList({ janres, janresListIsVisible, handleJanreChange, hanldeJanr
 	return(
 		<div id="janresListAndSlideButtons" className={`${janresListIsVisible ?  "visible" : "hidden"}`}>
 			<HideJanresList handleJanresListHide={handleJanresListHide}  />
-			<div id="slideLeft" onClick={(event) => hanldeJanresListSlide({ side: "left", janresListRef, event })}><b>&#60;</b></div>
+			<div id="slideLeft" onClick={(event) => hanldeJanresListSlide({ side: "left", janresListRef, event })}><b>&#60;&#60;</b></div>
 			
 			<div id="janresListWrapper">
 				<div id="janresList" ref={janresListRef}>
@@ -20,7 +20,7 @@ function JanresList({ janres, janresListIsVisible, handleJanreChange, hanldeJanr
 				</div>
 			</div>
 			
-			<div id="slideRight" onClick={(event) => hanldeJanresListSlide({ side: "right", janresListRef, event })}><b>&#62;</b></div>
+			<div id="slideRight" onClick={(event) => hanldeJanresListSlide({ side: "right", janresListRef, event })}><b>&#62;&#62;</b></div>
 		</div>
 	)
 }

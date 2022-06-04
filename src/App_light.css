@@ -525,6 +525,7 @@ header{
     display: inline-block;
     background-size: cover;
     overflow: hidden;
+    /*border: var(--standardBorderStyle);*/
 }
 
 .janreDarkeningWindow{
@@ -560,16 +561,22 @@ header{
     color: white;
     background: #222222;
     border: 2px solid white;
+    transition: 0.1s;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
 }
 
+#slideRight b, #slideLeft b{
+    cursor: pointer;
+    pointer-events: none;
+}
+
 #janresListAndSlideButtons > #slideLeft:hover, #janresListAndSlideButtons > #slideRight:hover{
-    color: black;
-    background: gray;
+    background: var(--middleDarkBackgroundColor);
     border: var(--standardBorderStyle);
+    user-select: none;
 }
 
 #openSongCreator{
@@ -593,18 +600,18 @@ header{
 }
 
 #songsViewer{
-    border: var(--standardBorderStyle);
     width: 100%;
     min-height: 350px;
     color: var(--standardLightTextColor);
-    border-top: var(--standardBorderStyle);
     border-radius: 0.3rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 #songsContainer{
-    
+    border-top: var(--standardBorderStyle);
+    border-bottom: var(--standardBorderStyle);
+    border-color: var(--lightBackgroundColor);
 }
 
 #songsViewer audio{
@@ -765,13 +772,14 @@ header{
     min-height: 3rem;
     height: max-content;
     border-bottom: var(--standardBorderStyle);
+    border-color: var(--standardLightTextColor);
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .song:first-child{
-    border-top: var(--standardBorderStyle);
+    /*border-top: var(--standardBorderStyle);*/
 }
 
 .song .songTitle{
