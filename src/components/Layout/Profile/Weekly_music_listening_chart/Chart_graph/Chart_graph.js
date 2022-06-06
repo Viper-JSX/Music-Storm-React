@@ -1,11 +1,14 @@
-function ChartGraph({ listeningData=[] }){
+import GraphLine from "./Graph_line";
+
+function ChartGraph({ chartLines=[] }){
     return(
-        <div>
+        <div className="chartGraph">
             Chart graph
             {
                 //Select the last 7
-                listeningData.map((listeningDataItem) => <p>{listeningDataItem.recordDate} {listeningDataItem.minutesValue}</p>)
+                chartLines.map((line) =>  <GraphLine line={line} />)
             }
+
         </div>
     );
 }

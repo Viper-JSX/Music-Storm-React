@@ -1044,6 +1044,27 @@ header{
     border-radius: 50%;
 }
 
+.weeklyMusicListeningChart{
+
+}
+
+.chartGraph{
+    width: 40%;
+    height: 40%;
+    min-width: 320px;
+    min-height: 280px;
+    border: var(--standardBorderStyle);
+    position: relative;
+}
+
+.graphLine{
+    height: 8px;
+    background-color: red;
+    border: var(--standardBorderStyle);
+    position: absolute;
+    transform-origin: 0 center;
+}
+
 #achievements{
     color: var(--standardLightTextColor);
     display: grid;

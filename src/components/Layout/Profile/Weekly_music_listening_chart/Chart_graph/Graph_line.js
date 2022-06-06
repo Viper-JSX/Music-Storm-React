@@ -1,6 +1,12 @@
-function GraphLine({ slope, width }){
+function GraphLine({ line }){
+
     return(
-        <div className="slopeLine" style={{width: `${width}px`, transform: `rotate${slope}rad`}}>Line {slope}</div>
+        <div className="graphLine" style={{
+            width: `${line.width}px`, 
+            bottom: `${line.yPos}px`, 
+            left: `${line.xPos}px`,  
+            transform: `rotate(${line.slope}rad)`
+        }}></div>
     );
 }
 
