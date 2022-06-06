@@ -605,7 +605,7 @@ header{
 
 #songsViewer{
     width: 100%;
-    min-height: 350px;
+    min-height: calc(100vh - 12rem);
     color: var(--standardLightTextColor);
     border-radius: 0.3rem;
     overflow-x: hidden;
@@ -613,6 +613,7 @@ header{
 }
 
 #songsContainer{
+    min-height: calc(100vh - 11rem);
     border-top: var(--standardBorderStyle);
     border-bottom: var(--standardBorderStyle);
     border-color: var(--lightBackgroundColor);
@@ -620,6 +621,13 @@ header{
 
 #songsViewer audio{
 
+}
+
+.noSongsFoundText{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5rem;
 }
 
 #janresListToggle{

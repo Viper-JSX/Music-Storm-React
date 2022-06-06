@@ -13,9 +13,13 @@ function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresLis
 			{/*</div>*/}
 			<div id="songsContainer">
 				{
+					songsToDisplay.length > 0 ? 
+
 					songsToDisplay.map((song) => 
-						<Song song={song} handlePlay={handlePlay} handleAddToFavourite={handleAddToFavourite} key={song.name} />
+					<Song song={song} handlePlay={handlePlay} handleAddToFavourite={handleAddToFavourite} key={song.name} />
 					)
+					:	
+					<b className='noSongsFoundText'>No songs found</b>
 				}
 			</div>
 		</div>

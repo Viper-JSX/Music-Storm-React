@@ -11,7 +11,7 @@ class User{
 		this.iconURL = iconURL;
 
 		this.info = {
-			listenedSeconds: 1000,
+			listenedSeconds: 10,
 			songsInFav: 0
 		};
 
