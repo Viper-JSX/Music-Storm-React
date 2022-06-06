@@ -5,7 +5,7 @@ function ProfileInfo(){
     const user = useUser();
 
     return(
-        <div id="profileInfo">
+        <div class="profileInfo">
             <ProfileImage imageURL={user.iconURL} />
             <br />
             {user.nickname}

@@ -495,7 +495,6 @@ header{
     width: 100%;
     height: 100%;
     background: #EEEEEE;
-    border: var(--standardBorderStyle);
     border-radius: 0.3rem;
     transition: 0.5s;
     white-space: nowrap;
@@ -522,6 +521,7 @@ header{
     width: 20%;
     height: 100%;
     border-right: var(--standardBorderStyle);
+    /*border-right: var(--standardBorderStyle);*/
     display: inline-block;
     background-size: cover;
     overflow: hidden;
@@ -861,7 +861,19 @@ header{
 .songOptions[state="closed"] .options{
     height: 0px;
     border: none;
-    /*display: none;*/
+}
+
+.toggleSongOptions{
+
+}
+
+.toggleSongOptions:hover{
+    color: var(--lightBackgroundColor);
+    background: var(--middleDarkBackgroundColor); 
+}
+
+.songOptions[state="opened"] .toggleSongOptions{
+    color: var(--highlightedBackgroundColor);
 }
 
 #openSongEditor{
@@ -1013,8 +1025,9 @@ header{
     align-items: center;
 }
 
-#profileInfo{
+.profileInfo{
     color: var(--standardLightTextColor);
+    text-align: center;
 }
 
 .userProfileImage{
