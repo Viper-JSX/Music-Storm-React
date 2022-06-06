@@ -1,6 +1,6 @@
 function Janre({ janre, handleJanreChange, handleJanresListHide }){
     return(
-        <div className="janre" key={janre.name} style={{backgroundImage: `url(${janre.backgroundImage})`}} onClick={() => {
+        <div className="janre" key={janre.name} style={{backgroundImage: `url(${janre.backgroundImage ? janre.backgroundImage : require('../../../Files/Images/Janre_images/common.png')})`}} onClick={() => {
                 handleJanresListHide();
                 handleJanreChange(janre);
             }

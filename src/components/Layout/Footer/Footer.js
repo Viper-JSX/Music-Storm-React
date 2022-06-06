@@ -1,6 +1,6 @@
 function Footer({ about }){
 	return(
-		<footer>
+		<footer id="footer">
 			<b>{about.copyright}</b>
 			<br />
 			<b>Copyright {about.year}</b>
