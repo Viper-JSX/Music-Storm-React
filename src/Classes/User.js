@@ -15,6 +15,8 @@ class User{
 			songsInFav: 0
 		};
 
+		this.dayListeningData = [];
+
 		this.favSongs = [];
 		this.listenedJanres = {
 			clubnyak: 10, //set to 0 in the end
@@ -64,6 +66,10 @@ class User{
 		}
 
 		console.log(this.listenedJanres)
+	};
+
+	addDayListeningRecord(recordDate, minutesValue){
+		this.dayListeningData.push({recordDate, minutesValue});
 	};
 
 }

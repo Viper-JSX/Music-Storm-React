@@ -26,6 +26,7 @@ import JanresList from './Janres_list/Janres_list.js';
 import Player from '../Player/Player.js';
 import Footer from './Footer/Footer';
 import SongCreator from './Main_block/Song_creator/Song_creator.js';
+import WeeklyMusicListenintChart from './Profile/Weekly_music_listening_chart/Weekly_music_listening_chart.js';
 
 function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, hanldeJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleRegister }){
 	const user = useUser();
@@ -70,6 +71,7 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 				<Route path="/profile" element={<Profile />}>
 					<Route path="" element={<ProfileInfo />} />
 					<Route path="info" element={<ProfileInfo />} index />
+					<Route path="weekly-music-listening-chart" element={<WeeklyMusicListenintChart />} index />
 					<Route path="achievements" element={<Achievements userAchievements={user?.achievements} />} />
 					<Route path="about" element={<About />} />
 				</Route>
