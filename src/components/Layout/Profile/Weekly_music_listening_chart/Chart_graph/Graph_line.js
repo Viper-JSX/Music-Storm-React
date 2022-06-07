@@ -1,4 +1,4 @@
-function GraphLine({ line }){
+function GraphLine({ line}){
 
     return(
         <div className="graphLine" style={{

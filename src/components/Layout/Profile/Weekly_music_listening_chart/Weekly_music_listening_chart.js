@@ -1,41 +1,32 @@
+import { useState } from "react";
 import ChartGraph from "./Chart_graph/Chart_graph";
 import useUser from "../../../../hooks/useUser";
+import turnGraphPointsIntoLines from "../../../../functions/turn_graph_point_into_lines";
 
 function WeeklyMusicListenintChart(){
     const user = useUser();
-    user.addDayListeningRecord("04-05-2019", 40);
-    user.addDayListeningRecord("04-05-2019", 60);
-    user.addDayListeningRecord("04-05-2019", 80);
-    const listeningData = user.dayListeningData;
-    const chartLines = [];
+    user.addDayListeningRecord("04-05-2019", 10);
+    user.addDayListeningRecord("04-05-2019", 20);
+    user.addDayListeningRecord("04-05-2019", 30);
+    user.addDayListeningRecord("04-05-2019", 20);
+    user.addDayListeningRecord("04-05-2019", 10);
+    user.addDayListeningRecord("04-05-2019", 30);
+    user.addDayListeningRecord("04-05-2019", 50);
 
-    for(let i = 0; i < listeningData.length; i++){
-        /*if(i == 0){
-            //let xDist = 1
-            let yDist = listeningData[i].minutesValue;
-            let width = Math.hypot(1, listeningData[i]);
-            //let slope = yDist / (10 * 1.5); //1.5 Is by what amount the Chart is higher than the highest week point;
+    const listeningData = [...user.dayListeningData];
 
-            continue;
-        }
+    const sevenDaysListeningDataChunk = listeningData.length > 7 ? listeningData.slice(listeningData.length - 7) : listeningData;
+    const [ chartGraphLines, setChartGraphLines ] = useState([]);
+    console.log(sevenDaysListeningDataChunk);
 
-        let yDist = listeningData[i].minutesValue;
-
-
-        }*/
-
-        //if(!listeningData[i + 1]){
-            //break;
-        //}
-
-        chartLines.push({ xPos: 20, yPos: 20 + i  * 10, width: 50, slope: 0.4});
-        console.log("Pushing 20")
+    function startGraphDraw(chartGraphDimentions){
+        const lines = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
+        setChartGraphLines(lines);
     }
 
     return(
         <div className="weeklyMusicListeningChart">
-                <b>Listening Chart</b>
-                <ChartGraph /*listeningData={listeningData}*/ chartLines={chartLines} />
+                <ChartGraph  chartGraphLines={chartGraphLines} startGraphDraw={startGraphDraw} />
         </div>
     );
 }

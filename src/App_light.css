@@ -1045,21 +1045,43 @@ header{
 }
 
 .weeklyMusicListeningChart{
-
-}
-
-.chartGraph{
-    width: 40%;
+    width: 50%;
     height: 40%;
     min-width: 320px;
     min-height: 280px;
     border: var(--standardBorderStyle);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartGraph{
+    width: 95%;
+    height: 95%;
+    min-width: 280px;
+    min-height: 240px;
     position: relative;
+}
+
+.xAxis{
+    width: 100%;
+    height: 0.2rem;
+    bottom: 0;
+    background-color: white;
+    position: absolute;
+}
+
+.yAxis{
+    width: 0.2rem;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    position: absolute;
 }
 
 .graphLine{
     height: 8px;
-    background-color: red;
+    background-color: var(--highlightedBackgroundColor);
     border: var(--standardBorderStyle);
     position: absolute;
     transform-origin: 0 center;
