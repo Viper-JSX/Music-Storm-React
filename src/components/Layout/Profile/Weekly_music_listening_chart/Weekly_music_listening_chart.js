@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChartGraph from "./Chart_graph/Chart_graph";
 import useUser from "../../../../hooks/useUser";
 import turnGraphPointsIntoLines from "../../../../functions/turn_graph_point_into_lines";
+import { chartRenderDays } from "../../../../constants";
 
 function WeeklyMusicListenintChart(){
     const user = useUser();
@@ -9,16 +10,26 @@ function WeeklyMusicListenintChart(){
     user.addDayListeningRecord("04-05-2019", 20);
     user.addDayListeningRecord("04-05-2019", 30);
     user.addDayListeningRecord("04-05-2019", 20);
-    user.addDayListeningRecord("04-05-2019", 10);
     user.addDayListeningRecord("04-05-2019", 30);
-    user.addDayListeningRecord("04-05-2019", 50);
+    //user.addDayListeningRecord("04-05-2019", 30);
+    //user.addDayListeningRecord("04-05-2019", 50);
 
     const listeningData = [...user.dayListeningData];
 
-    const sevenDaysListeningDataChunk = listeningData.length > 7 ? listeningData.slice(listeningData.length - 7) : listeningData;
+    const sevenDaysListeningDataChunk = listeningData.length >= chartRenderDays ? 
+    listeningData.slice(listeningData.length - chartRenderDays)
+    : 
+    (listeningData.length == chartRenderDays - 1 ? 
+        [...listeningData, { recordDate: "0", minutesValue: listeningData[chartRenderDays - 1] }]
+        : 
+        [{ recordDate: "0", minutesValue: 0 }, ...listeningData, { recordDate: "1", minutesValue: listeningData[chartRenderDays.length - 1] }]
+    );
+    
+    console.log()
     const [ chartGraphLines, setChartGraphLines ] = useState([]);
     const [ chartGraphMarkup, setChartGraphMarkup ] = useState({ x: [], y: [] });
 
+    console.log(listeningData)
     console.log(sevenDaysListeningDataChunk);
 
     function startGraphDraw(chartGraphDimentions){

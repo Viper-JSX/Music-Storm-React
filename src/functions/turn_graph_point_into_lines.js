@@ -1,7 +1,8 @@
 import GraphLine from "../Classes/Graph_line";
+import { chartRenderDays } from "../constants";
 
 function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
-    let graphXMarkLength = chartGraphDimentions.width / 7;
+    let graphXMarkLength = chartGraphDimentions.width / chartRenderDays;
     let graphYMarkLength = chartGraphDimentions.height / 10;
 
     const pointValues = listeningData.map((point) => point.minutesValue);

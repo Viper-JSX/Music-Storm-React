@@ -1,0 +1,1 @@
+export const chartRenderDays = 7;
