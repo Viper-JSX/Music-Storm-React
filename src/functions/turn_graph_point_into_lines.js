@@ -32,7 +32,7 @@ function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
         graphLines.push(newLine);
     }
 
-    return graphLines;
+    return {graphLines, graphXMarkLength, graphYMarkLength};
     //console.log(chartGraphDimentions)
 };
 

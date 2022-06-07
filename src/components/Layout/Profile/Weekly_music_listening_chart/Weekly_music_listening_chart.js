@@ -17,16 +17,30 @@ function WeeklyMusicListenintChart(){
 
     const sevenDaysListeningDataChunk = listeningData.length > 7 ? listeningData.slice(listeningData.length - 7) : listeningData;
     const [ chartGraphLines, setChartGraphLines ] = useState([]);
+    const [ chartGraphMarkup, setChartGraphMarkup ] = useState({ x: [], y: [] });
+
     console.log(sevenDaysListeningDataChunk);
 
     function startGraphDraw(chartGraphDimentions){
-        const lines = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
-        setChartGraphLines(lines);
+        const {graphLines, graphXMarkLength, graphYMarkLength} = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
+        console.log(graphLines)
+        const xMarkup = [];
+        const yMarkup = [];
+        for(let i = 0; i < 7; i++){
+            xMarkup.push(i);
+        }
+
+        for(let i = 0; i < 10; i++){
+            yMarkup.push(graphYMarkLength * i);
+        }
+
+        setChartGraphMarkup({ x: xMarkup, y: yMarkup });
+        setChartGraphLines(graphLines);
     }
 
     return(
         <div className="weeklyMusicListeningChart">
-                <ChartGraph  chartGraphLines={chartGraphLines} startGraphDraw={startGraphDraw} />
+                <ChartGraph  chartGraphLines={chartGraphLines} startGraphDraw={startGraphDraw} chartGraphMarkup={chartGraphMarkup} />
         </div>
     );
 }

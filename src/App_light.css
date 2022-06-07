@@ -1069,6 +1069,9 @@ header{
     bottom: 0;
     background-color: white;
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .yAxis{
@@ -1076,7 +1079,9 @@ header{
     height: 100%;
     background-color: white;
     position: absolute;
-    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .graphLine{
