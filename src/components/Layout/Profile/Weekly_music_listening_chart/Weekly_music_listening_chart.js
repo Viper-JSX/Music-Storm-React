@@ -3,41 +3,41 @@ import ChartGraph from "./Chart_graph/Chart_graph";
 import useUser from "../../../../hooks/useUser";
 import turnGraphPointsIntoLines from "../../../../functions/turn_graph_point_into_lines";
 import { chartRenderDays } from "../../../../constants";
+import { useEffect } from "react";
 
 function WeeklyMusicListenintChart(){
     const user = useUser();
-    user.addDayListeningRecord("04-05-2019", 10);
-    user.addDayListeningRecord("04-05-2019", 20);
-    user.addDayListeningRecord("04-05-2019", 30);
-    user.addDayListeningRecord("04-05-2019", 20);
-    user.addDayListeningRecord("04-05-2019", 30);
-    //user.addDayListeningRecord("04-05-2019", 30);
-    //user.addDayListeningRecord("04-05-2019", 50);
+    user.listeningData = [];
+
+    //useEffect(() => {
+    //    user.addDayListeningRecord("04-05-2019", 5);
+    //    user.addDayListeningRecord("04-05-2019", 15);
+    //    user.addDayListeningRecord("04-05-2019", 10);
+    //}, [])
 
     const listeningData = [...user.dayListeningData];
+    const [daysCountStartIndex, setDayCountStartIndex] = useState(() => listeningData.length - chartRenderDays);
 
-    const sevenDaysListeningDataChunk = listeningData.length >= chartRenderDays ? 
-    listeningData.slice(listeningData.length - chartRenderDays)
-    : 
-    (listeningData.length == chartRenderDays - 1 ? 
-        [...listeningData, { recordDate: "0", minutesValue: listeningData[chartRenderDays - 1] }]
-        : 
-        [{ recordDate: "0", minutesValue: 0 }, ...listeningData, { recordDate: "1", minutesValue: listeningData[chartRenderDays.length - 1] }]
-    );
+    let sevenDaysListeningDataChunk;
     
-    console.log()
+    if(listeningData.length > chartRenderDays + 1){
+        sevenDaysListeningDataChunk = [...listeningData.slice(daysCountStartIndex, daysCountStartIndex + chartRenderDays + 1)]; 
+        console.log("part", /*sevenDaysListeningDataChunk*/listeningData);
+    }
+
+    else{
+        sevenDaysListeningDataChunk = [...listeningData];
+        console.log("full", /**sevenDaysListeningDataChunk*/listeningData);
+    }
+
     const [ chartGraphLines, setChartGraphLines ] = useState([]);
     const [ chartGraphMarkup, setChartGraphMarkup ] = useState({ x: [], y: [] });
 
-    console.log(listeningData)
-    console.log(sevenDaysListeningDataChunk);
-
     function startGraphDraw(chartGraphDimentions){
         const {graphLines, graphXMarkLength, graphYMarkLength} = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
-        console.log(graphLines)
         const xMarkup = [];
         const yMarkup = [];
-        for(let i = 0; i < 7; i++){
+        for(let i = 0; i < chartRenderDays; i++){
             xMarkup.push(i);
         }
 
@@ -47,6 +47,10 @@ function WeeklyMusicListenintChart(){
 
         setChartGraphMarkup({ x: xMarkup, y: yMarkup });
         setChartGraphLines(graphLines);
+    }
+
+    function handleDaysCountStartIndexChange(){
+
     }
 
     return(

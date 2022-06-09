@@ -28,7 +28,11 @@ function ChartGraph({ chartGraphLines, chartGraphMarkup, startGraphDraw }){
             </div>
             {
                 //Select the last 7
-                chartGraphLines.map((line) =>  <GraphLine line={line} />)
+                chartGraphLines.map((line, index, lines) =>  {
+
+                    return (<GraphLine line={line} lineCountNumber={index} amountOfLines={lines.length} />);
+                 })
+
             }
 
         </div>

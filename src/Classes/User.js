@@ -15,7 +15,17 @@ class User{
 			songsInFav: 0
 		};
 
-		this.dayListeningData = [];
+		this.dayListeningData = [
+			{ recordDate: "10-10-2011", minutesValue: 0 }, //This one is mandatory
+			{ recordDate: "10-10-2011", minutesValue: 10 }, //These are only tests
+			{ recordDate: "10-10-2011", minutesValue: 20 },
+			{ recordDate: "10-10-2011", minutesValue: 30 },
+			{ recordDate: "10-10-2011", minutesValue: 20 },
+			{ recordDate: "10-10-2011", minutesValue: 10 },
+			//{ recordDate: "10-10-2011", minutesValue: 30 },
+			//{ recordDate: "10-10-2011", minutesValue: 20 },
+			//{ recordDate: "10-10-2011", minutesValue: 20 },
+		];
 
 		this.favSongs = [];
 		this.listenedJanres = {

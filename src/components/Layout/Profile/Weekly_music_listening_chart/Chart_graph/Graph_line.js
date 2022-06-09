@@ -1,12 +1,11 @@
-function GraphLine({ line}){
-
+function GraphLine({ line, lineCountNumber, amountOfLines}){
     return(
         <div className="graphLine" style={{
-            width: `${line.width}px`, 
+            width: `${lineCountNumber < amountOfLines - 1 ? line.width : 0}px`, 
             bottom: `${line.yPos}px`, 
             left: `${line.xPos}px`,  
             transform: `rotate(${line.slope}rad)`
-        }}></div>
+        }}>{line.minutesValue}</div>
     );
 }
 

@@ -10,8 +10,6 @@ function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
     const graphLines = [];
 
     for(let i = 0; i < listeningData.length; i++){
-        console.log("G")
-
         let lineXPos = graphXMarkLength * i;
         let lineYPos = (listeningData[i].minutesValue / graphMaxValue) * chartGraphDimentions.height; 
         let lineWidth;
@@ -28,7 +26,7 @@ function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
 
         console.log(listeningData[i].minutesValue, graphMaxValue,  lineYPos);
 
-        let newLine = new GraphLine(lineXPos, lineYPos, lineWidth, lineSlope);
+        let newLine = new GraphLine(lineXPos, lineYPos, lineWidth, lineSlope, listeningData[i].minutesValue);
         //console.log(newLine)
         graphLines.push(newLine);
     }
