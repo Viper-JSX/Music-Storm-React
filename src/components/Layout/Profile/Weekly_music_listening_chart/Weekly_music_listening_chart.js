@@ -53,14 +53,14 @@ function WeeklyMusicListenintChart(){
     function handleChartMoveLeft(){
         if(daysCountStartIndex !== 0){
             setDayCountStartIndex((prevCount) => prevCount - 1);   
-            console.log("Moving left", daysCountStartIndex);
+            //console.log("Moving left", daysCountStartIndex);
         }
     }
 
     function handleChartMoveRight(){
         if(listeningData.length > daysCountStartIndex + (chartRenderDays + 1)){
             setDayCountStartIndex((prevCount) => prevCount + 1);   
-            console.log("Moving right", daysCountStartIndex);
+            //console.log("Moving right", daysCountStartIndex);
         }
     }
 
@@ -70,6 +70,7 @@ function WeeklyMusicListenintChart(){
                     chartGraphLines={chartGraphLines} 
                     startGraphDraw={startGraphDraw} 
                     chartGraphMarkup={chartGraphMarkup}
+                    daysCountStartIndex={daysCountStartIndex}
                 />
 
                 <ChartMoveButtons  
