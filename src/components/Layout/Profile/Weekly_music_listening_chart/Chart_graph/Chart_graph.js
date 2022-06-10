@@ -7,11 +7,13 @@ function ChartGraph({ chartGraphLines, chartGraphMarkup, startGraphDraw }){
     let chartGraphWidth = 640;
     let chartGraphHeight = 320;
 
+    //console.log("redering", chartGraphLines)
+
     useEffect(() =>  {
         chartGraphWidth = graphFieldRef.current.offsetWidth;
         chartGraphHeight = graphFieldRef.current.offsetHeight;
         startGraphDraw({ width: chartGraphWidth, height: chartGraphHeight});
-    }, []);
+    }, [chartGraphLines]);
 
     return(
         <div className="chartGraph" ref={graphFieldRef}>
