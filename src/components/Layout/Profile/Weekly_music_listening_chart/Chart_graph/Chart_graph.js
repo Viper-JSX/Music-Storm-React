@@ -6,9 +6,7 @@ function ChartGraph({ chartGraphLines, daysCountStartIndex, chartGraphMarkup, st
     const graphFieldRef = createRef();  
     let chartGraphWidth = 640;
     let chartGraphHeight = 320;
-
-    //console.log("redering", chartGraphLines)
-    console.log(daysCountStartIndex)
+console.log(chartGraphMarkup)
     useEffect(() =>  {
         chartGraphWidth = graphFieldRef.current.offsetWidth;
         chartGraphHeight = graphFieldRef.current.offsetHeight;
@@ -19,13 +17,13 @@ function ChartGraph({ chartGraphLines, daysCountStartIndex, chartGraphMarkup, st
         <div className="chartGraph" ref={graphFieldRef}>
             <div className="xAxis">
                 {
-                    chartGraphMarkup.x.map((mark) => <div>{mark}</div>)
+                    chartGraphMarkup.x.map((mark) => <div style={{left: `${mark.offsetLeft}px`}} >{mark.value}</div>)
                 }
             </div>
 
             <div className="yAxis">
                 {
-                    chartGraphMarkup.y.reverse().map((mark) => <span>{mark}</span>)
+                    chartGraphMarkup.y.map((mark) => <div style={{bottom: `${mark.offsetBottom}px`}}>{mark.value}</div>)
                 }
             </div>
             {

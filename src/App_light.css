@@ -1069,8 +1069,8 @@ header{
     bottom: 0;
     background-color: white;
     position: absolute;
-    display: flex;
-    justify-content: space-between;
+    /*display: flex;
+    justify-content: space-between;*/
 
 }
 
@@ -1079,9 +1079,18 @@ header{
     height: 100%;
     background-color: white;
     position: absolute;
-    display: flex;
+    /*display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: column;*/
+}
+
+.xAxis div, .yAxis div{
+    position: absolute;
+}
+
+.xAxis div{
+    transform: translate(-50%, 100%) rotate(-60deg);
+    font-size: 0.7rem;
 }
 
 .graphLine{

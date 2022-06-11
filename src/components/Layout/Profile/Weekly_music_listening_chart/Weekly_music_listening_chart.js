@@ -3,7 +3,6 @@ import ChartGraph from "./Chart_graph/Chart_graph";
 import useUser from "../../../../hooks/useUser";
 import turnGraphPointsIntoLines from "../../../../functions/turn_graph_point_into_lines";
 import { chartRenderDays } from "../../../../constants";
-import { useEffect } from "react";
 import ChartMoveButtons from "./Chart_move_buttons/Chart_move_buttons";
 
 function WeeklyMusicListenintChart(){
@@ -18,49 +17,43 @@ function WeeklyMusicListenintChart(){
     
     if(listeningData.length > chartRenderDays + 1){
         sevenDaysListeningDataChunk = [...listeningData.slice(daysCountStartIndex, daysCountStartIndex + chartRenderDays + 1)]; 
-        //console.log("part", sevenDaysListeningDataChunk, listeningData);
     }
 
     else{
         sevenDaysListeningDataChunk = [...listeningData];
-        //console.log("full", sevenDaysListeningDataChunk, listeningData);
     }
 
     const [ chartGraphLines, setChartGraphLines ] = useState([]);
     const [ chartGraphMarkup, setChartGraphMarkup ] = useState({ x: [], y: [] });
 
     function startGraphDraw(chartGraphDimentions){
-        const {graphLines, graphXMarkLength, graphYMarkLength} = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
-        console.log(sevenDaysListeningDataChunk);
+        const {graphLines, graphXMarkLength, graphYMarkLength, graphYMarkValue} = turnGraphPointsIntoLines(sevenDaysListeningDataChunk, chartGraphDimentions);
         const xMarkup = [];
         const yMarkup = [];
+
         for(let i = 0; i < chartRenderDays; i++){
-            xMarkup.push(i);
+            xMarkup.push({offsetLeft: graphXMarkLength * i , value: sevenDaysListeningDataChunk[i].recordDate});
         }
 
         for(let i = 0; i < 10; i++){
-            yMarkup.push(graphYMarkLength * i);
+            yMarkup.push({ offsetBottom: graphYMarkLength * i, value: graphYMarkValue * i });
         }
+        //yMarkup.reverse();
+        console.log(graphYMarkValue);
 
         setChartGraphMarkup({ x: xMarkup, y: yMarkup });
         setChartGraphLines(graphLines);
     }
 
-    function handleDaysCountStartIndexChange(){
-
-    }
-
     function handleChartMoveLeft(){
         if(daysCountStartIndex !== 0){
             setDayCountStartIndex((prevCount) => prevCount - 1);   
-            //console.log("Moving left", daysCountStartIndex);
         }
     }
 
     function handleChartMoveRight(){
         if(listeningData.length > daysCountStartIndex + (chartRenderDays + 1)){
             setDayCountStartIndex((prevCount) => prevCount + 1);   
-            //console.log("Moving right", daysCountStartIndex);
         }
     }
 
