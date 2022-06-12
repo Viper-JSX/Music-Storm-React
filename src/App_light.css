@@ -8,7 +8,7 @@
 
     --mainAppBackgroundColor: rgb(17, 24, 32);
     --mainAppColor: rgb(243, 170, 78);
-    --highlightedTextColor: #F23005;
+    --highlightedTextColor: #f23005;
 
     --standardBorderStyle: 2px solid black;
     --standardThinBorder: 1px solid #222222;
@@ -29,7 +29,7 @@ body{
 
 header{
     width: 100%;
-    height: 1.5rem;
+    height: 3rem;
     color: white;
     /*background-image: url("../public/Files/Images/header_background.png");*/
     background: rgba(10, 10, 10, 0.3);
@@ -39,8 +39,21 @@ header{
     align-items: center;
 }
 
-#mainLogo{
+/*#appLogo{
     flex-grow: 0.5;
+}*/
+
+#appLogoContainer{
+    width: 3rem;
+    height: 100%;
+    background: red;
+}
+
+#appLogo{
+    width: 100%;
+    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
 }
 
 #navigation{
@@ -1091,6 +1104,10 @@ header{
 .xAxis div{
     transform: translate(-50%, 100%) rotate(-60deg);
     font-size: 0.7rem;
+}
+
+.yAxis div{
+    transform: translateX(-100%)
 }
 
 .graphLine{

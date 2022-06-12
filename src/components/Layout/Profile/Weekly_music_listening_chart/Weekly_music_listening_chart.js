@@ -31,11 +31,11 @@ function WeeklyMusicListenintChart(){
         const xMarkup = [];
         const yMarkup = [];
 
-        for(let i = 0; i < chartRenderDays; i++){
+        for(let i = 0; i < chartRenderDays + 1; i++){
             xMarkup.push({offsetLeft: graphXMarkLength * i , value: sevenDaysListeningDataChunk[i].recordDate});
         }
 
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < 10 + 1; i++){
             yMarkup.push({ offsetBottom: graphYMarkLength * i, value: graphYMarkValue * i });
         }
         //yMarkup.reverse();
