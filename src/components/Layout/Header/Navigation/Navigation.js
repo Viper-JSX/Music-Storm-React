@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faMusic, faList, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import HideNavigation from './Hide_navigation';
 
 
-function Navigation(){
+function Navigation({ navigationIsVisible, handleNavigationHide }){
+	console.log(navigationIsVisible ? "visible" : "hidden")
 	return(
-		<nav id="navigation">
+		<nav id="navigation" className={navigationIsVisible ? "visible" : "hidden"}>
 			{/*
 			<NavLink to="/"><FontAwesomeIcon icon={faHouse} />Home</NavLink>
 			<NavLink to="/music/music-list"><FontAwesomeIcon icon={faMusic} />Music</NavLink>
@@ -13,6 +15,7 @@ function Navigation(){
 			<NavLink to="/favourite"><FontAwesomeIcon icon={faStar} />Fav</NavLink>
 			<NavLink to="/profile"><FontAwesomeIcon icon={faUser} />Profile</NavLink>
 			*/}
+			<HideNavigation handleNavigationHide={handleNavigationHide} />
 
 			<NavLink to="/">Home</NavLink>
 			<NavLink to="/music/music-list">Music</NavLink>

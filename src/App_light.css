@@ -48,8 +48,15 @@ header{
     min-width: 440px;
     height: 2rem;
     height: 100%;
+    position: relative; /*For #hideNavigation*/
     display: flex;
     justify-content: space-around;
+}
+
+#navigation #hideNavigation{
+    top: 0;
+    right: 0;
+    position: absolute;
 }
 
 #navigation > *{ 
@@ -1263,6 +1270,27 @@ p{
 }
 
 @media screen and (max-width: 500px){
+    /*---Header---*/
+    header #navigation{
+        width: 100vw;
+        height: 100vh;
+        min-width: 320px;
+        top: 0;
+        left: 0;
+        position: fixed;
+        flex-direction: column;
+        background-color: var(--middleDarkBackgroundColor);
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    header #navigation.hidden{
+        height: 0vh;
+        transition: 0.5s;
+    }
+
+    /*------------*/
+    
     #janresListAndSlideButtons{
         width: 50%;
         /*height: 100vh;
