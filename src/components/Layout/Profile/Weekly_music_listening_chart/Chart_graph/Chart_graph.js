@@ -6,12 +6,18 @@ function ChartGraph({ chartGraphLines, daysCountStartIndex, chartGraphMarkup, st
     const graphFieldRef = createRef();  
     let chartGraphWidth = 640;
     let chartGraphHeight = 320;
-console.log(chartGraphMarkup)
+
     useEffect(() =>  {
         chartGraphWidth = graphFieldRef.current.offsetWidth;
         chartGraphHeight = graphFieldRef.current.offsetHeight;
         startGraphDraw({ width: chartGraphWidth, height: chartGraphHeight});
     }, [daysCountStartIndex]);
+
+    window.onresize = () =>{
+        chartGraphWidth = graphFieldRef.current.offsetWidth;
+        chartGraphHeight = graphFieldRef.current.offsetHeight;
+        startGraphDraw({ width: chartGraphWidth, height: chartGraphHeight});
+    } 
 
     return(
         <div className="chartGraph" ref={graphFieldRef}>
