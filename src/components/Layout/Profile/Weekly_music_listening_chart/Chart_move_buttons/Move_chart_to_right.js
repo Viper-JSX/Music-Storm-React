@@ -1,6 +1,6 @@
 function MoveChartToRight({ handleChartMoveRight }){
     return(
-        <button onClick={handleChartMoveRight}>Right</button>
+        <button onClick={handleChartMoveRight}>{">>"}</button>
     );
 }
 

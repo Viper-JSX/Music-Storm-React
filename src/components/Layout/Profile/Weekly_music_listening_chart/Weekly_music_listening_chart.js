@@ -58,19 +58,21 @@ function WeeklyMusicListenintChart(){
     }
 
     return(
-        <div className="weeklyMusicListeningChart">
-                <ChartGraph  
-                    chartGraphLines={chartGraphLines} 
-                    startGraphDraw={startGraphDraw} 
-                    chartGraphMarkup={chartGraphMarkup}
-                    daysCountStartIndex={daysCountStartIndex}
-                />
+        <>
+            <div className="weeklyMusicListeningChart">
+                    <ChartGraph  
+                        chartGraphLines={chartGraphLines} 
+                        startGraphDraw={startGraphDraw} 
+                        chartGraphMarkup={chartGraphMarkup}
+                        daysCountStartIndex={daysCountStartIndex}
+                    />
 
-                <ChartMoveButtons  
-                    handleChartMoveLeft={handleChartMoveLeft}
-                    handleChartMoveRight={handleChartMoveRight}
-                />
-        </div>
+                    <ChartMoveButtons  
+                        handleChartMoveLeft={handleChartMoveLeft}
+                        handleChartMoveRight={handleChartMoveRight}
+                    />
+            </div>
+        </>
     );
 }
 

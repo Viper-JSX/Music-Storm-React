@@ -1,7 +1,7 @@
 function MoveChartToLeft({ handleChartMoveLeft }){
     console.log(handleChartMoveLeft)
     return(
-        <button onClick={handleChartMoveLeft}>Left</button>
+        <button onClick={handleChartMoveLeft}>{"<<"}</button>
     );
 }
 

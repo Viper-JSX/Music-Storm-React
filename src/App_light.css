@@ -1041,6 +1041,8 @@ header{
 }
 
 #profileContent{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1062,10 +1064,25 @@ header{
     height: 40%;
     min-width: 320px;
     min-height: 280px;
+    margin-top: 5rem;
     border: var(--standardBorderStyle);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: center;
+
+}
+
+.weeklyMusicListeningChart:before{
+    --fontSize: 2rem;
+
+    content: "Your listening chart";
+    top: -3rem;
+    left: auto;
+    position: absolute;
+    font-size: var(--fontSize);
+    font-weight: 600;
 }
 
 .chartGraph{
@@ -1102,7 +1119,7 @@ header{
 }
 
 .xAxis div{
-    transform: translate(-50%, 100%) rotate(-60deg);
+    transform: translate(-50%, 150%) rotate(-60deg);
     font-size: 0.7rem;
 }
 
@@ -1116,6 +1133,18 @@ header{
     border: var(--standardBorderStyle);
     position: absolute;
     transform-origin: 0 center;
+}
+
+.chartMoveButtons{
+    top: 0;
+    right: 0;
+    transform: translateY(-100%);
+    position: absolute;
+}
+
+.chartMoveButtons button{
+    color: var(--standardLightTextColor);
+    background: var(--darkBackgroundColor);
 }
 
 #achievements{
