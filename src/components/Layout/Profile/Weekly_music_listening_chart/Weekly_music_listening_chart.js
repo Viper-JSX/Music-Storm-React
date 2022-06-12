@@ -32,7 +32,12 @@ function WeeklyMusicListenintChart(){
         const yMarkup = [];
 
         for(let i = 0; i < chartRenderDays + 1; i++){
-            xMarkup.push({offsetLeft: graphXMarkLength * i , value: sevenDaysListeningDataChunk[i].recordDate});
+            if(sevenDaysListeningDataChunk[i]){
+                xMarkup.push({offsetLeft: graphXMarkLength * i , value: sevenDaysListeningDataChunk[i].recordDate});
+            }   
+            else{
+                break;
+            }
         }
 
         for(let i = 0; i < 10 + 1; i++){

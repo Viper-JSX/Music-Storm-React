@@ -6,7 +6,7 @@ function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
     let graphYMarkLength = chartGraphDimentions.height / 10;
 
     const pointValues = listeningData.map((point) => point.minutesValue);
-    const graphMaxYValue = Math.max(...pointValues);  
+    const graphMaxYValue = Math.max(...pointValues) > 0 ?  Math.max(...pointValues) : 10;  
     const graphLines = [];
 
     for(let i = 0; i < listeningData.length; i++){
