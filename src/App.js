@@ -403,6 +403,10 @@ function App(){
         };
     };
 
+    function handleLogout(){
+        setUser(null);
+    }
+
     function handleRegister({ nickname, login, password, cameFrom, event }){
         event.preventDefault();
 
@@ -479,6 +483,7 @@ function App(){
                     handleThemeChange={handleThemeChange}
                 
                     handleLogin={handleLogin}
+                    handleLogout={handleLogout}
                     handleRegister={handleRegister}
 
                     playingSong={playingSong} 

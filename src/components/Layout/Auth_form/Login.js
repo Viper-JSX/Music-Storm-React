@@ -12,7 +12,7 @@ function Login({ handleLogin }){
 			<div className="inputs">
 				<input type="text" placeholder="login" ref={loginRef} />
 				<br />
-				<input type="text" placeholder="password" ref={passwordRef} />
+				<input type="password" placeholder="password" ref={passwordRef} />
 				<br />
 			</div>
 			<button onClick={ (event) => handleLogin({ login: loginRef.current.value, password: passwordRef.current.value, cameFrom: location.state.cameFrom, event }) }>Login</button>

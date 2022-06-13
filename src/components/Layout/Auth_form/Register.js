@@ -14,7 +14,7 @@ function Register({ handleRegister }){
 				<br />
 				<input type="text" placeholder="login" ref={loginRef}/>
 				<br />
-				<input type="text" placeholder="password" ref={passwordRef}/>
+				<input type="password" placeholder="password" ref={passwordRef}/>
 				<br />
 			</div>
 
