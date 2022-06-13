@@ -410,6 +410,13 @@ function App(){
     function handleRegister({ nickname, login, password, cameFrom, event }){
         event.preventDefault();
 
+        for(let i = 0; i < users.length; i++){
+            if(users[i].login.toLowerCase() == login.toLowerCase()){
+                console.log("User exists");
+                return;
+            }
+        }
+
         const newUser = new User(nickname, login, password);
         users.push(newUser);
         setUser(newUser);
