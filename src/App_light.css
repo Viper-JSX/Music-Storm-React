@@ -535,7 +535,6 @@ header .showNavigation:hover{
     width: 90%;
     height: 100%;
     overflow: hidden;
-    background: blue;
 }
 
 #janresList{
@@ -1433,10 +1432,8 @@ p{
     /*------------*/
     
     #janresListAndSlideButtons{
-        width: 50%;
-        /*height: 100vh;
-        max-height: 100vh;*/
-        height: 200px;
+        width: 100vw;
+        height: 100vh;
         min-width: 300px;
         margin: 0;
         position: fixed;
@@ -1445,10 +1442,6 @@ p{
         overflow-y: scroll;
         transition: 0.5s;
         z-index: 1;
-    }
-
-    #janresListAndSlideButtons.visible{
-
     }
 
     #janresListAndSlideButtons.hidden{
@@ -1460,15 +1453,18 @@ p{
 
     #janresListWrapper{
         width: 100%;
+        height: 100%;
+        overflow: auto;
     }
 
     #janresList{
+        height: 100vh;
         flex-direction: column;
     }
 
     .janre{
         width: 100%;
-        height: 4rem;
+        height: 5.5rem;
         display: block;
     }
 
