@@ -29,7 +29,7 @@ body{
 
 header{
     width: 100%;
-    height: 1.5rem;
+    height: 3rem;
     color: white;
     /*background-image: url("../public/Files/Images/header_background.png");*/
     background: rgba(10, 10, 10, 0.3);
@@ -53,10 +53,37 @@ header{
     justify-content: space-around;
 }
 
-#navigation #hideNavigation{
+header .showNavigation{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: var(--standardBorderStyle);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+header .showNavigation:hover{
+    color: var(--standardLightTextColor);
+    background-color: var(--highlightedBackgroundColor);
+}
+
+#navigation .hideNavigation{
+    width: 1.5rem;
+    height: 1.5rem;
     top: 0;
     right: 0;
+    color: var(--standardLightTextColor);
+    background: var(--highlightedBackgroundColor);
+    border: var(--standardBorderStyle);
     position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation .hideNavigation:hover{
+    color: var(--standardDarkTextColor);
+    background: var(--lightBackgroundColor);
 }
 
 #navigation > *{ 
@@ -1272,8 +1299,6 @@ p{
 @media screen and (max-width: 500px){
     /*---Header---*/
     header #navigation{
-        width: 100vw;
-        height: 100vh;
         min-width: 320px;
         top: 0;
         left: 0;
@@ -1281,12 +1306,25 @@ p{
         flex-direction: column;
         background-color: var(--middleDarkBackgroundColor);
         overflow: hidden;
+        transition: 0.5s;
         z-index: 1;
     }
 
+    header #navigation.visible{
+        width: 100vw;
+    }
+
     header #navigation.hidden{
-        height: 0vh;
-        transition: 0.5s;
+        width: 0vh;
+        min-width: 0px;
+    }
+
+    header .showNavigation{
+        display: block;
+    }
+
+    header #navigation .hideNavigation{
+        display: flex;   
     }
 
     /*------------*/

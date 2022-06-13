@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faList } from "@fortawesome/free-solid-svg-icons";
+
 function ShowNavigation({ handleNavigationShow }){
     return(
-        <div id="showNavigation" onClick={handleNavigationShow}>Show nav</div>
+        <div className="showNavigation" onClick={handleNavigationShow}><FontAwesomeIcon icon={faList} /></div>
     );
 }
 

@@ -1,6 +1,6 @@
 function HideNavigation({ handleNavigationHide }){
     return(
-        <div id="hideNavigation" onClick={handleNavigationHide}>X</div>
+        <div className="hideNavigation" onClick={handleNavigationHide}>X</div>
     );
 }
 

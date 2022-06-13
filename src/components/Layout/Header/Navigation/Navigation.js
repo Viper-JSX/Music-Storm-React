@@ -17,11 +17,11 @@ function Navigation({ navigationIsVisible, handleNavigationHide }){
 			*/}
 			<HideNavigation handleNavigationHide={handleNavigationHide} />
 
-			<NavLink to="/">Home</NavLink>
-			<NavLink to="/music/music-list">Music</NavLink>
-			<NavLink to="/music/playlists">Playlists</NavLink>
-			<NavLink to="/favourite">Fav</NavLink>
-			<NavLink to="/profile">Profile</NavLink>
+			<NavLink to="/" onClick={handleNavigationHide}>Home</NavLink>
+			<NavLink to="/music/music-list" onClick={handleNavigationHide}>Music</NavLink>
+			<NavLink to="/music/playlists" onClick={handleNavigationHide}>Playlists</NavLink>
+			<NavLink to="/favourite" onClick={handleNavigationHide}>Fav</NavLink>
+			<NavLink to="/profile" onClick={handleNavigationHide}>Profile</NavLink>
 		</nav>
 	);
 }
