@@ -61,8 +61,42 @@ header{
     min-width: 440px;
     height: 2rem;
     height: 100%;
+    position: relative; /*For #hideNavigation*/
     display: flex;
     justify-content: space-around;
+}
+
+header .showNavigation{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: var(--standardBorderStyle);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+header .showNavigation:hover{
+    color: var(--standardLightTextColor);
+    background-color: var(--highlightedBackgroundColor);
+}
+
+#navigation .hideNavigation{
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0;
+    right: 0;
+    color: var(--standardLightTextColor);
+    background: var(--highlightedBackgroundColor);
+    border: var(--standardBorderStyle);
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation .hideNavigation:hover{
+    color: var(--standardDarkTextColor);
+    background: var(--lightBackgroundColor);
 }
 
 #navigation > *{ 
@@ -1366,6 +1400,38 @@ p{
 }
 
 @media screen and (max-width: 500px){
+    /*---Header---*/
+    header #navigation{
+        min-width: 320px;
+        top: 0;
+        left: 0;
+        position: fixed;
+        flex-direction: column;
+        background-color: var(--middleDarkBackgroundColor);
+        overflow: hidden;
+        transition: 0.5s;
+        z-index: 1;
+    }
+
+    header #navigation.visible{
+        width: 100vw;
+    }
+
+    header #navigation.hidden{
+        width: 0vh;
+        min-width: 0px;
+    }
+
+    header .showNavigation{
+        display: block;
+    }
+
+    header #navigation .hideNavigation{
+        display: flex;   
+    }
+
+    /*------------*/
+    
     #janresListAndSlideButtons{
         width: 50%;
         /*height: 100vh;
