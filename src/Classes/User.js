@@ -9,6 +9,7 @@ class User{
 		this.password = password;
 		this.achievements = achievementsTemplate;	
 		this.iconURL = iconURL;
+		this.status = "common_user";
 
 		this.info = {
 			listenedSeconds: 10,

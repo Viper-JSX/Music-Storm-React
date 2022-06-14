@@ -2,14 +2,23 @@ import Song from './Song/Song';
 import Search from '../Header/Search';
 import JanresListToggle from '../Janres_list/Janres_list_toggle';
 import OpenSongCreator from './Open_song_creator';
+import useUser from '../../../hooks/useUser';
 
 function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresListToggle, handleAddToFavourite }){
+	const user = useUser();
+	
 	return(
 		<div id="songsViewer">
 			{/*<div>*/}
 				<JanresListToggle handleJanresListToggle={handleJanresListToggle} />
 				<Search handleSearch={handleSearch} />
-				<OpenSongCreator />
+				{
+					user && user.status == "admin" ? 
+					<OpenSongCreator />
+					:
+					null
+				}
+
 			{/*</div>*/}
 			<div id="songsContainer">
 				{

@@ -422,7 +422,7 @@ function App(){
 
         for(let i = 0; i < users.length; i++){
             if(users[i].login.toLowerCase() == login.toLowerCase()){
-                showError("User already exists");
+                showError(`User '${users[i].login}' already exists`);
                 return;
             }
         }

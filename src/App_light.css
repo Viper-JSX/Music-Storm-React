@@ -1331,9 +1331,13 @@ header .showNavigation:hover{
 }
 
 #errorPopup{
+    min-width: 240px;
+    min-height: 120px;
     bottom: 0;
     right: 1rem;
-    background-color: red;
+    color: red;
+    background-color: var(--lightBackgroundColor);
+    border-radius: 0.5rem;
     position: fixed;
     transition: 1s;
 }
