@@ -397,14 +397,20 @@ function App(){
 
     function handleLogin({ login, password, cameFrom, event }){
         event.preventDefault();
+        let userFound = false;
 
         for(let i = 0; i < users.length; i++){
             if(users[i].login == login && users[i].password == password){
                 setUser(users[i]);
                 navigate(cameFrom);
+                userFound = true;
                 break;
             }
         };
+
+        if(!userFound){
+            showError("Whong login or password");
+        }
     };
 
     function handleLogout(){
@@ -416,7 +422,7 @@ function App(){
 
         for(let i = 0; i < users.length; i++){
             if(users[i].login.toLowerCase() == login.toLowerCase()){
-                console.log("User exists");
+                showError("User already exists");
                 return;
             }
         }
@@ -430,7 +436,7 @@ function App(){
 
     function handleSongCreate(newSong){
         if(!newSong.name || !newSong.janre || !newSong.src){
-            console.log("Fill all the fields")
+            showError("Fill all the fields");
             return;
         }
 
@@ -442,7 +448,7 @@ function App(){
     function handleSongEdit({ editedSong, oldSongName }){
         console.log("Edit", editedSong, oldSongName);
         if(!editedSong.name || !editedSong.janre || !editedSong.src){
-            console.log("Fill all the fields")
+            showError("Fill all the fields");
             return;
         }
 
@@ -460,9 +466,8 @@ function App(){
 
     function showError(errorText){
         setCurrentAppError((prevError) => ({...prevError, errorText: errorText}));
+        setTimeout(() => setCurrentAppError(""), 3000);
     }
-
-    useEffect(() => showError("Figa tobi"), [])
 
     return(
         <ThemeContext.Provider value={theme}>
@@ -510,6 +515,8 @@ function App(){
                     handleControlPlay={handleControlPlay} 
                     handleDurationChange={handleDurationChange} 
                     handleVolumeChange={handleVolumeChange}
+
+                    showError={showError}
 
                     about={about}
                 />
