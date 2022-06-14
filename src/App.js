@@ -1,7 +1,7 @@
 import './App_light.css';
 
 import { useState, useEffect, createContext, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import appThemes from './various_things/themes';
 import users from './various_things/users.js';
@@ -9,8 +9,10 @@ import songs from './various_things/songs.js';
 
 import ThemeContext from './context/Theme_context.js';
 import UserContext from './context/User_context.js';
+import ErrorContext from './context/Error_context';
 import Layout from './components/Layout/Layout';
 import User from './Classes/User';
+import ErrorPopup from './components/Error/Error_popup';
 
 
 let janres = [
@@ -74,6 +76,8 @@ function App(){
 
     const [homePageHasBeenScrolled, sethomePageHasBeenScrolled] = useState(false);
     const [janresListIsVisible, setJanresListIsvisible] = useState(false);
+
+    const [ currentAppError, setCurrentAppError ] = useState({ errorText: "" });
 
     /*---App-start*---*/
     document.body.onscroll = !homePageHasBeenScrolled ? handleBodyScroll : null; //To get rid of event when all animations have fired
@@ -454,9 +458,16 @@ function App(){
         }
     }
 
+    function showError(errorText){
+        setCurrentAppError((prevError) => ({...prevError, errorText: errorText}));
+    }
+
+    useEffect(() => showError("Figa tobi"), [])
+
     return(
         <ThemeContext.Provider value={theme}>
         <UserContext.Provider value={user}>
+        <ErrorContext.Provider value={currentAppError} >
             <div className="App">
                 <Layout
                     janres={janres}
@@ -502,7 +513,10 @@ function App(){
 
                     about={about}
                 />
+
+                <ErrorPopup />
             </div>
+        </ErrorContext.Provider>
         </UserContext.Provider>
         </ThemeContext.Provider>
     );
