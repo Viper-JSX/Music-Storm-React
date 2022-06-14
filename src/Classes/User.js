@@ -48,9 +48,9 @@ class User{
 		};
 
 		this.playlists = [
-			new Playlist("Corova", [songs[1]]), 
-			new Playlist("Bull", [songs[0]]),
-			new Playlist("Nikolai", [songs[1]]),
+			new Playlist("Travel", [songs[0], songs[1]]), 
+			new Playlist("Training", [songs[0]]),
+			new Playlist("Walking", [songs[1]]),
 		];
 
 		//info properties must be the same as achievement.nameForCheck for each one

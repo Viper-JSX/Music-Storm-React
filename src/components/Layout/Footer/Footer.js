@@ -1,9 +1,14 @@
+import ContactUs from "./Contact_us";
+import Copyright from "./Copyright";
+import FooterInfo from "./Footer_info";
+
 function Footer({ about }){
 	return(
 		<footer id="footer">
-			<b>{about.copyright}</b>
-			<br />
-			<b>Copyright {about.year}</b>
+			{/*<CopyrightAndFooterInfo about={about} />*/}
+			<FooterInfo />
+			<ContactUs />
+			<Copyright about={about} />
 		</footer>
 	)
 }

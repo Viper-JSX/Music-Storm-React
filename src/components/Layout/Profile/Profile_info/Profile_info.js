@@ -9,7 +9,8 @@ function ProfileInfo({ handleLogout }){
         <div class="profileInfo">
             <ProfileImage imageURL={user.iconURL} />
             <br />
-            {user.nickname}
+            <span>{user.nickname}</span>
+            <br />
             <LogoutButton handleLogout={handleLogout} />
         </div>
     );
