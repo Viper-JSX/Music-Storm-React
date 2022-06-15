@@ -80,7 +80,7 @@ function App(){
     const [ currentAppError, setCurrentAppError ] = useState({ errorText: "" });
 
     /*---App-start*---*/
-    document.body.onscroll = !homePageHasBeenScrolled ? handleBodyScroll : null; //To get rid of event when all animations have fired
+    window.onscroll = !homePageHasBeenScrolled ? handleBodyScroll : null; //To get rid of event when all animations have fired
     /*--------------*/
 
 
@@ -127,10 +127,6 @@ function App(){
                 bookMark.classList.add("visible");
             })
             sethomePageHasBeenScrolled(true);
-        }
-
-        if(window.scrollY >= 900/*aboutUsSectionParagraphs.clientTop + 100*/){
-            
         }
     }
 

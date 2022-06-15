@@ -18,19 +18,19 @@ class User{
 
 		this.dayListeningData = [
 			{ recordDate: "10-10-2011", minutesValue: 0 }, //This one is mandatory
-			//{ recordDate: "11-10-2011", minutesValue: 10 }, //These are only tests
-			//{ recordDate: "12-10-2011", minutesValue: 20 },
-			//{ recordDate: "13-10-2011", minutesValue: 10 },
-			//{ recordDate: "14-10-2011", minutesValue: 50 },
-			//{ recordDate: "15-10-2011", minutesValue: 40 },
-			//{ recordDate: "16-10-2011", minutesValue: 20 },
-			//{ recordDate: "17-10-2011", minutesValue: 0 },
-			//{ recordDate: "18-10-2011", minutesValue: 10 },
-			//{ recordDate: "19-10-2011", minutesValue: 40 },
-			//{ recordDate: "20-10-2011", minutesValue: 100 },
-			//{ recordDate: "21-10-2011", minutesValue: 410 },
-			//{ recordDate: "22-10-2011", minutesValue: 220 },
-			//{ recordDate: "10-10-2011", minutesValue: 20 },
+			{ recordDate: "11-10-2011", minutesValue: 10 }, //These are only tests
+			{ recordDate: "12-10-2011", minutesValue: 20 },
+			{ recordDate: "13-10-2011", minutesValue: 10 },
+			{ recordDate: "14-10-2011", minutesValue: 50 },
+			{ recordDate: "15-10-2011", minutesValue: 40 },
+			{ recordDate: "16-10-2011", minutesValue: 20 },
+			{ recordDate: "17-10-2011", minutesValue: 0 },
+			{ recordDate: "18-10-2011", minutesValue: 10 },
+			{ recordDate: "19-10-2011", minutesValue: 40 },
+			{ recordDate: "20-10-2011", minutesValue: 100 },
+			{ recordDate: "21-10-2011", minutesValue: 410 },
+			{ recordDate: "22-10-2011", minutesValue: 220 },
+			{ recordDate: "10-10-2011", minutesValue: 20 },
 			//{ recordDate: "10-10-2011", minutesValue: 10 },
 			//{ recordDate: "10-10-2011", minutesValue: 30 },
 			//{ recordDate: "10-10-2011", minutesValue: 20 },

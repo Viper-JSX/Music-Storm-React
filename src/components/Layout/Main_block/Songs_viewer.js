@@ -9,9 +9,7 @@ function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresLis
 	
 	return(
 		<div id="songsViewer">
-			{/*<div>*/}
-				<JanresListToggle handleJanresListToggle={handleJanresListToggle} />
-				<Search handleSearch={handleSearch} />
+			<div id="songsViewerTools">
 				{
 					user && user.status == "admin" ? 
 					<OpenSongCreator />
@@ -19,7 +17,10 @@ function SongsViewer({ songsToDisplay, handlePlay, handleSearch, handleJanresLis
 					null
 				}
 
-			{/*</div>*/}
+				<JanresListToggle handleJanresListToggle={handleJanresListToggle} />
+				<Search handleSearch={handleSearch} />
+			</div>
+
 			<div id="songsContainer">
 				{
 					songsToDisplay.length > 0 ? 
