@@ -1218,7 +1218,6 @@ header .showNavigation:hover{
     color: var(--standardLightTextColor);
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .achievement:hover{
@@ -1226,8 +1225,9 @@ header .showNavigation:hover{
 }
 
 .progressBarWrapper{
-    width: 200px;
+    width: 80%;
     height: 10px;
+    max-width: 200px;
     background: rgba(10, 10, 10, 0.4);
 }
 
@@ -1516,6 +1516,17 @@ p{
     #aboutUsSection .paragraph{
         text-align: center;
     }
+
+
+    /*--User---*/
+    #achievements{
+        justify-content: center;
+    }
+
+    .achievement{
+        margin: 0.3rem;
+    }
+    /*---------*/
 }
 
 @media screen and (max-width: 500px){
