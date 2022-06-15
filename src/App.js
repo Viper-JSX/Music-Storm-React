@@ -371,7 +371,15 @@ function App(){
     function handleAddToPlaylist({ songToPlaylist, playlistName }){
         //check if song is already in playlist
         for(let i = 0; i < user.playlists.length; i++){
-            if(user.playlists[i].name == playlistName){
+            if(user.playlists[i].name.toLowerCase() == playlistName.toLowerCase()){
+                let playlist = user.playlists[i];
+                for(let i = 0; i < playlist.songs.length; i++){
+                    if(playlist.songs[i].name == songToPlaylist.name){
+                        showError("Song already in playlist");
+                        return;
+                    }
+                }
+
                 user.playlists[i].songs.push(songToPlaylist);
                 setUser(user);
                 navigate(`/music/playlists/${playlistName}`)
