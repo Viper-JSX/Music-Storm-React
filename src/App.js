@@ -203,8 +203,8 @@ function App(){
         let clickedProgress = clickPosition / volumeWrapperWidth;
 
         playerRef.current.volume = clickedProgress;
-        document.getElementById("playerVolumeBar").style.width = `${clickedProgress * 100}%`;
-        document.getElementById("volumeBarPercentIndicator").textContent = `${clickedProgress * 100}%`;
+        document.getElementById("playerVolumeBar").style.width = `${Math.round(clickedProgress * 100)}%`;
+        document.getElementById("volumeBarPercentIndicator").textContent = `${Math.round(clickedProgress * 100)}%`;
 
         event.target.onmousemove = function(anEvent){
             clickPosition = anEvent.pageX - anEvent.target.offsetLeft;
