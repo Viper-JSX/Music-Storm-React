@@ -64,6 +64,8 @@ function WeeklyMusicListenintChart(){
 
     return(
         <>
+            <b id="weeklyMusicListeningChartTitle">Your weekly listening chart</b>
+            <br />
             <div className="weeklyMusicListeningChart">
                     <ChartGraph  
                         chartGraphLines={chartGraphLines} 

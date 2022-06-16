@@ -1011,9 +1011,10 @@ header .showNavigation:hover{
 
 #playerProgressBarWrapper{
     width: 70%;
-    height: 0.3rem;
+    height: 0.4rem;
     background: #222222;
-    border-radius: 20%;
+    border-radius: 1rem;
+    border: 1px solid black;
     overflow: hidden;
     text-align: center;
     position: relative;
@@ -1029,7 +1030,7 @@ header .showNavigation:hover{
 }
 
 #playerProgressBar > p{
-
+    font-family: monospace sans-serif;
 }
 
 #playerTimeInfo{
@@ -1041,8 +1042,10 @@ header .showNavigation:hover{
 
 #playerVolumeBarWrapper{
     width: 100px;
-    height: 0.3rem;
+    height: 0.5rem;
     background: rgba(10, 10, 10, 0.4);
+    border: var(--standardBorderStyle);
+    border-radius: 1rem;
 }
 
 #playerVolumeBar{
@@ -1098,6 +1101,7 @@ header .showNavigation:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .profileInfo{
@@ -1139,13 +1143,18 @@ header .showNavigation:hover{
 
 .weeklyMusicListeningChart:before{
     --fontSize: 2rem;
-
-    content: "Your listening chart";
-    top: -3rem;
-    left: auto;
+    content: "Music Storm";/*"Your listening chart"*/;
+    color: rgba(255, 255, 255, 0.5);
     position: absolute;
     font-size: var(--fontSize);
     font-weight: 600;
+}
+
+#weeklyMusicListeningChartTitle{
+    text-align: center;
+    font-size: 1.5rem;
+    display: inline-block;
+    flex-basis: 100%;
 }
 
 .chartGraph{
@@ -1218,6 +1227,10 @@ header .showNavigation:hover{
     flex-wrap: wrap;
 }
 
+.achievement{
+    margin: 0.5rem;
+}
+
 .achievement:hover{
     background-color: rgba(10, 10, 10, 0.5)/*var(--highlightedBackgroundColor)*/;
 }
@@ -1227,6 +1240,7 @@ header .showNavigation:hover{
     height: 10px;
     max-width: 200px;
     background: rgba(10, 10, 10, 0.4);
+    border: var(--standardBorderStyle);
 }
 
 .progressBarFill{
@@ -1519,10 +1533,6 @@ p{
     /*--User---*/
     #achievements{
         justify-content: center;
-    }
-
-    .achievement{
-        margin: 0.3rem;
     }
     /*---------*/
 }
