@@ -884,7 +884,7 @@ header .showNavigation:hover{
     flex-grow: 1;
 }
 
-.song > .playButton{
+.playButton{
     width: 1.8rem;
     height: 1.5rem;
     margin-left: 1rem;
@@ -892,9 +892,12 @@ header .showNavigation:hover{
     background: var(--lightDarkBackgroundColor);
     border-radius: 0.2rem;
     transition: 0.3s;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
 }
 
-.song > .playButton:hover{
+.playButton:hover{
     background: var(--highlightedBackgroundColor);
 }
 
@@ -1004,11 +1007,6 @@ header .showNavigation:hover{
 #playerControl{
     display: flex;
     justify-content: space-around;
-}
-
-#playerControl > .playButton{
-    width: 2rem;
-    height: 2rem;
 }
 
 #playerProgressBarWrapper{

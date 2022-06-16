@@ -1,5 +1,9 @@
 import { createRef } from "react/cjs/react.production.min";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+
 import VolumeBar from "./Volume_bar";
+
 
 function getMinutesAndSeconds(duration){
 	if(!duration) return [0, 0];
@@ -22,7 +26,7 @@ function getMinutesAndSeconds(duration){
 
 
 function Player({ playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange }){
-	let songPlaingStatus = playingSong.isPlaying ? "\u23F8" : "\u23F5";
+	let songPlaingStatus = playingSong.isPlaying ? <FontAwesomeIcon icon={faPause}/> : <FontAwesomeIcon icon={faPlay} style={{fontSize: "0.7rem"}} />;
 	let [ minutesPassed, secondsPassed ] = getMinutesAndSeconds(playerRef?.current?.currentTime);
 	let [ durationMinutes, durationSeconds ] = getMinutesAndSeconds(playerRef?.current?.duration);
 	let path = window.location.pathname;
@@ -38,7 +42,7 @@ function Player({ playingSong, playerRef, handleDurationProgress, handleControlP
 			<audio src={playingSong.src} control="true" ref={playerRef} onTimeUpdate={handleDurationProgress}></audio>
 			
 			<div id="playerControl">
-				<button id="playButton" onClick={() => handleControlPlay(playingSong)}>{songPlaingStatus}</button>
+				<button className="playButton" onClick={() => handleControlPlay(playingSong)}>{songPlaingStatus}</button>
 				<div id="playerProgressBarWrapper" onClick={handleDurationChange}>
 					<div id="playerProgressBar" style={{width: `${playingSong.progressBar}%`}}></div>
 				</div>

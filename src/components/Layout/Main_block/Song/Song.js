@@ -1,12 +1,15 @@
-import userEvent from '@testing-library/user-event';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, useNavigate } from 'react-router-dom';
+
 import useUser from '../../../../hooks/useUser';
 import OpenSongEditor from './Open_song_editor';
 import SongOptions from './Song_options';
 
 function Song({ song, playlistName, handlePlay, handleAddToFavourite, handleRemoveFromFavourite, handleRemoveFromPlaylist }){
 	const user = useUser();
-	let playingIndicator = song.isPlaying ? "\u23F8" : "\u23F5";
+	let playingIndicator = song.isPlaying ? <FontAwesomeIcon icon={faPause}/> : <FontAwesomeIcon icon={faPlay} style={{fontSize: "0.7rem"}} />;
 	const navigate = useNavigate();
 
 	return(
