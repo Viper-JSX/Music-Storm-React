@@ -94,6 +94,7 @@ header .showNavigation:hover{
     display: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #navigation .hideNavigation:hover{
@@ -184,6 +185,15 @@ header .showNavigation:hover{
     background-image: url("https://cdn.wallpapersafari.com/41/72/IOcNqv.jpg");
     background-size: cover;
     background-position: center 0;
+    position: relative;
+}
+
+#headingBackCover{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.5);
+    position: absolute;
 }
 
 #homePageHeadingTextAndButtons{
@@ -192,6 +202,8 @@ header .showNavigation:hover{
     margin-left: 10vw;
     margin-top: 20vh;
     text-align: right;
+    position: relative;
+    z-index: 1;
 }
 
 #homePageHeadingText{
@@ -858,7 +870,7 @@ header .showNavigation:hover{
     text-align: center;
 }
 
-.deletePlaylistButton, .createPlaylistbutton{
+.deletePlaylistButton, .createPlaylistButton{
     color: var(--standardLightTextColor);
     background: var(--middleDarkBackgroundColor);
     border-radius: 0.2rem;
@@ -1455,13 +1467,22 @@ footer{
     align-items: center;
 }
 
+.ourPhoneNumber{
+    color: var(--highlightedBackgroundColor);
+    background-color: var(--darkBackgroundColor);
+}
+
+.ourPhoneNumber:hover{
+    color: var(--standardLightTextColor);
+}
+
 #contactUsSocialMedia > *{
     margin: 0.2rem;
     font-size: 2rem;
 }
 
 #contactUsSocialMedia > a > *:hover{
-    color: var(--highlightedTextColor);
+    color: var(--standardLightTextColor);
 }
 
 .facebookIcon{
@@ -1509,6 +1530,8 @@ p{
     #homePageHeadingTextAndButtons{
         margin-left: auto;
         margin-right: auto;
+        /*background: rgba(10, 10, 10, 0.4);
+        border-radius: 1rem;*/
     }
 
     #homePageInfoSection .text{
@@ -1555,7 +1578,7 @@ p{
         background-color: var(--middleDarkBackgroundColor);
         overflow: hidden;
         transition: 0.5s;
-        z-index: 1;
+        z-index: 2;
     }
 
     header #navigation.visible{

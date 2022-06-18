@@ -8,7 +8,7 @@ function ContactUs(){
     return(
         <div id="contactUs">
             <div id="contactUsHeading"><span>Contact us</span></div>
-            <span>Call us: <a href="tel: +1200025511">+1200025511</a></span>
+            <span>Call us: <a className="ourPhoneNumber" href="tel: +1200025511">+1200025511</a></span>
             <br />
             <span>Or contact trhough social media:</span>
             <div id="contactUsSocialMedia">

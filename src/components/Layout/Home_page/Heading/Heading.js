@@ -4,6 +4,7 @@ function Heading(){
     return(
         <div id="heading">
             <HomePageHeadingTextAndButtons />
+            <div id="headingBackCover"></div>
         </div>
     )
 }
