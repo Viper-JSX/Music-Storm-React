@@ -28,10 +28,10 @@ import Footer from './Footer/Footer';
 import SongCreator from './Main_block/Song_creator/Song_creator.js';
 import WeeklyMusicListenintChart from './Profile/Weekly_music_listening_chart/Weekly_music_listening_chart.js';
 
-function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, hanldeJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleLogout, handleRegister, showError }){
+function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, handleJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handlePlaylistCreate, handlePlaylistDelete, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleLogout, handleRegister, showError }){
 	const user = useUser();
 	const LayoutMainBlock = (<MainBlock songsToDisplay={songsToDisplay} topics={topics} handlePlay={handlePlay} handleTagChange={handleTagChange} handleAddToFavourite={handleAddToFavourite} />);
-	
+
 	return(
 		<div id="layoutWindow">
 			<Header handleThemeChange={handleThemeChange}/>
@@ -41,7 +41,7 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 					<Route path="music-list" element={
 						<>
 							{/*<Topics topics={topics} handleTagChange={handleTagChange} />*/}
-							<JanresList janres={janres} displayJanresRange={displayJanresRange} janresListIsVisible={janresListIsVisible} handleJanreChange={handleJanreChange} hanldeJanresListSlide={hanldeJanresListSlide} handleJanresListHide={handleJanresListHide} />
+							<JanresList janres={janres} displayJanresRange={displayJanresRange} janresListIsVisible={janresListIsVisible} handleJanreChange={handleJanreChange} handleJanresListSlide={handleJanresListSlide} handleJanresListHide={handleJanresListHide} />
 							<SongsViewer songsToDisplay={songsToDisplay} handlePlay={handlePlay} handleSearch={handleSearch} handleAddToFavourite={handleAddToFavourite} handleJanresListToggle={handleJanresListToggle} />
 						</>
 					}>
@@ -51,20 +51,20 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 					<Route path="music-list/edit/:songName" element={<SongCreator handleSongEdit={handleSongEdit} janres={janres} />} />
 					
 					<Route path="playlists" >
-						<Route path="" element={<UserPlaylists handlePlaylistOpen={handlePlaylistOpen} />} />
+						<Route path="" element={<UserPlaylists handlePlaylistCreate={handlePlaylistCreate} handlePlaylistOpen={handlePlaylistOpen} />} />
 
 						{
 							user ? 
 							user.playlists.map((playlist) => {
 								return(
-									<Route path={playlist.name} element={<Playlist playlist={playlist} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} />} />
+									<Route path={playlist.name} element={<Playlist playlist={playlist} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistDelete={handlePlaylistDelete} />} />
 								)
 							})
 							: null
 						}
 					</Route>
 
-					<Route path="add-to-playlist" element={<UserPlaylists handleAddToPlaylist={handleAddToPlaylist} />} />					
+					<Route path="add-to-playlist" element={<UserPlaylists handleAddToPlaylist={handleAddToPlaylist}  />} />					
 				</Route>
 				<Route path="/favourite" element={<FavouriteSongs favSongs={favSongs} handlePlay={handlePlay} handleRemoveFromFavourite={handleRemoveFromFavourite} />} />
 				

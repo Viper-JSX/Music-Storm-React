@@ -848,12 +848,29 @@ header .showNavigation:hover{
 }
 
 .playlist{
+    min-height: calc(100vh - 3rem);
     color: var(--standardLightTextColor);
     border-radius: 1rem;
     border: var(--standardBorderStyle);
 }
 
 .playlist > p{
+    text-align: center;
+}
+
+.deletePlaylistButton, .createPlaylistbutton{
+    color: var(--standardLightTextColor);
+    background: var(--middleDarkBackgroundColor);
+    border-radius: 0.2rem;
+}
+
+.deletePlaylistButton{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.playlistEmptyText{
     text-align: center;
 }
 
@@ -1301,17 +1318,7 @@ header .showNavigation:hover{
     background-color: #222222;
 }
 
-#authForm > #login > button{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
-
-#authForm > #register{
-
-}
-
-#authForm > #register > button{
+#authForm > #login > button, #authForm > #register > button{
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -1586,8 +1593,6 @@ p{
     #janresListAndSlideButtons.hidden{
         width: 0px;
         min-width: 0px;
-        /*display: none;*/
-        /*display: none;*/
     }
 
     #janresListWrapper{

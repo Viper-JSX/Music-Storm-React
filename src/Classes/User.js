@@ -56,19 +56,24 @@ class User{
 		//info properties must be the same as achievement.nameForCheck for each one
 	};
 
+	createPlaylist(playlistName){
+		this.playlists.push(new Playlist(playlistName, []));
+	}
+
+	deletePlaylist(playlistName){
+		for(let i = 0; i < this.playlists.length; i++){
+			if(this.playlists[i].name == playlistName){
+				this.playlists.splice(i, 1);
+				return;
+			}
+		}
+	}
+
 	addListenedSeconds(amount){
 		this.info.listenedSeconds += amount;
 	}
 
 	addFavSong(song){
-		console.log("Adding song")
-		for(let i = 0; i < this.favSongs.length; i++){
-            if(this.favSongs[i].name == song.name){
-                console.log("Already in favs");
-                return;
-            }
-        }
-
 		this.favSongs.push(song);
 	};
 

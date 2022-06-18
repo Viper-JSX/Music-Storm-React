@@ -1,10 +1,12 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import useUser from '../../../../hooks/useUser';
+import PlaylistCreator from './Playlist_creator';
 import PlaylistOpener from './Playlist_opener';
 
-function UserPlaylists({ handlePlaylistOpen, handleAddToPlaylist }){
+function UserPlaylists({ handlePlaylistCreate, handlePlaylistOpen, handleAddToPlaylist }){
     const user = useUser();
     const location = useLocation();
+
 
     if(!user){
         return(
@@ -20,6 +22,13 @@ function UserPlaylists({ handlePlaylistOpen, handleAddToPlaylist }){
                 }
             </b></p>
            
+            {
+                handlePlaylistOpen ? 
+                <PlaylistCreator handlePlaylistCreate={handlePlaylistCreate} />
+                :
+                null
+            }
+
             <div id="userPlaylists">
                 {
                     user.playlists.map((playlist) => 

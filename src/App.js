@@ -222,13 +222,6 @@ function App(){
 
     }
 
-    function handleVolumeDrag(event){
-    }
-
-    function handleVolumeRelease(){
-
-    }
-
     function handleSearch(event){     
         console.log("Search")   
         let searchTerm = event.target.value.toLowerCase();
@@ -326,7 +319,7 @@ function App(){
     }
 
     
-    function hanldeJanresListSlide({ side, janresListRef, event }){
+    function handleJanresListSlide({ side, janresListRef, event }){
         let marginLeft = getComputedStyle(janresListRef.current).marginLeft;
         event.target.style.background = "var(--highlightedBackgroundColor)";
         setTimeout(() => event.target.style.background = "var(--middleDarkBackgroundColor)", 200)
@@ -346,13 +339,24 @@ function App(){
     }
 
     function handleAddToFavourite(song){
-        if(!user) return;
+        if(!user){
+            navigate({to: "/authorization"}); //Add cameFrom
+            return;
+        }
+
+        for(let i = 0; i < user.favSongs.length; i++){
+            if(user.favSongs[i].name == song.name){
+				console.log("Already in favs")
+            	showError("Already in favs");
+                return;
+            }
+        }
 
         setUser((prevUser) => {
-            prevUser.addFavSong(song);
+            prevUser.addFavSong(song, showError);
             return prevUser;
         });
-        
+        navigate("/favourite"); //Add cameFrom
         //localStorage.setItem("user", JSON.stringify(user)); //Local storage does not copy methods as for me
     };
 
@@ -367,6 +371,37 @@ function App(){
         setForceUpdateState(new Object);
         //localStorage.setItem("user", JSON.stringify(user)); //Local storage does not copy methods as for me
     };
+
+    function handlePlaylistCreate(playlistName){
+        console.log("Creating playlist", playlistName);
+        let playlistExists = false;
+        
+        for(let i = 0; i < user.playlists.length; i++){
+            console.log(user.playlists[i].name, playlistName)
+            if(user.playlists[i].name == playlistName){
+                playlistExists = true;
+                break;
+            }
+        }
+
+        if(playlistExists){
+            showError("Playlist already exists");
+            return;
+        }
+
+        user.createPlaylist(playlistName);
+        setUser(user); //To update the state
+        setForceUpdateState({});
+        navigate(playlistName.toLowerCase().replace(" ", "-"));
+        //navigate to playlist
+    }
+
+    function handlePlaylistDelete(playlistName){
+        console.log("Deleting", playlistName);
+        user.deletePlaylist(playlistName);
+        setForceUpdateState({}); //To start render
+        navigate("/music/playlists");
+    }
 
     function handleAddToPlaylist({ songToPlaylist, playlistName }){
         //check if song is already in playlist
@@ -485,7 +520,7 @@ function App(){
                     handleJanresListToggle={handleJanresListToggle}
                     handleJanresListHide={handleJanresListHide}
                     handleJanreChange={handleJanreChange} 
-                    hanldeJanresListSlide={hanldeJanresListSlide}
+                    handleJanresListSlide={handleJanresListSlide}
 
                     newsList={news}
 
@@ -503,6 +538,8 @@ function App(){
                     handleSongCreate={handleSongCreate}
                     handleSongEdit={handleSongEdit}
 
+                    handlePlaylistCreate={handlePlaylistCreate}
+                    handlePlaylistDelete={handlePlaylistDelete}
                     handleAddToPlaylist={handleAddToPlaylist}
                     handleRemoveFromPlaylist={handleRemoveFromPlaylist}
 
