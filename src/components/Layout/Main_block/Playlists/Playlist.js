@@ -1,8 +1,7 @@
 import songs from "../../../../various_things/songs";
 import Song from "../Song/Song";
 
-function Playlist({ playlist = [], handlePlay, handleRemoveFromPlaylist, handlePlaylistDelete }){
-    console.log(playlist)
+function Playlist({ playlist = { name: "", songs: []}, handlePlay, handleRemoveFromPlaylist, handlePlaylistDelete }){
     return(
         <div className="playlist">
             <p><b>{playlist.name}</b></p>
@@ -10,7 +9,7 @@ function Playlist({ playlist = [], handlePlay, handleRemoveFromPlaylist, handleP
                 {
                     playlist.songs.length > 0 ? 
                     playlist.songs.map((song) => 
-                        <Song song={song} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} playlistName={playlist.name} />
+                        <Song song={song} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} playlistName={playlist.name} key={`${playlist.name}_${song.name}`} />
                     )
                     :
                     <b className="playlistEmptyText">This playlist is empty</b>

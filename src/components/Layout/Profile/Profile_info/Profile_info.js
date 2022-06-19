@@ -6,7 +6,7 @@ function ProfileInfo({ handleLogout }){
     const user = useUser();
 
     return(
-        <div class="profileInfo">
+        <div className="profileInfo">
             <ProfileImage imageURL={user.iconURL} />
             <br />
             <span>{user.nickname}</span>

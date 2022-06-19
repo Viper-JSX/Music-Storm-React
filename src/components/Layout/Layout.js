@@ -6,12 +6,10 @@ import Header from './Header/Header';
 import HomePage from './Home_page/Home_page';
 import MainBlock from './Main_block/Main_block';
 import SongsViewer  from './Main_block/Songs_viewer';
-import Topics from './Main_block/Topics';
 
 import Playlist from './Main_block/Playlists/Playlist';
 import FavouriteSongs from './Favourite_songs';
 import UserPlaylists from './Main_block/Playlists/User_playlists';
-
 
 import Profile from './Profile/Profile';
 import ProfileInfo from './Profile/Profile_info/Profile_info.js';
@@ -28,9 +26,9 @@ import Footer from './Footer/Footer';
 import SongCreator from './Main_block/Song_creator/Song_creator.js';
 import WeeklyMusicListenintChart from './Profile/Weekly_music_listening_chart/Weekly_music_listening_chart.js';
 
-function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOpen, handleTagChange, janres, displayJanresRange, janresListIsVisible, handleJanreChange, handleJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handlePlaylistCreate, handlePlaylistDelete, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleLogout, handleRegister, showError }){
+function Layout({ songsToDisplay, favSongs, handlePlay, handlePlaylistOpen, janres, displayJanresRange, janresListIsVisible, handleJanreChange, handleJanresListSlide, handleJanresListToggle, handleJanresListHide, newsList, homePageHasBeenScrolled,  handleSearch, handleThemeChange, playingSong, playerRef, handleDurationProgress, handleControlPlay, handleDurationChange, handleVolumeChange, about, handleAddToFavourite, handleRemoveFromFavourite, handleSongCreate, handleSongEdit, handlePlaylistCreate, handlePlaylistDelete, handleAddToPlaylist, handleRemoveFromPlaylist, handleLogin, handleLogout, handleRegister, showError }){
 	const user = useUser();
-	const LayoutMainBlock = (<MainBlock songsToDisplay={songsToDisplay} topics={topics} handlePlay={handlePlay} handleTagChange={handleTagChange} handleAddToFavourite={handleAddToFavourite} />);
+	const LayoutMainBlock = (<MainBlock songsToDisplay={songsToDisplay} handlePlay={handlePlay} handleAddToFavourite={handleAddToFavourite} />);
 
 	return(
 		<div id="layoutWindow">
@@ -40,7 +38,6 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 				<Route path="/music" element={LayoutMainBlock} >
 					<Route path="music-list" element={
 						<>
-							{/*<Topics topics={topics} handleTagChange={handleTagChange} />*/}
 							<JanresList janres={janres} displayJanresRange={displayJanresRange} janresListIsVisible={janresListIsVisible} handleJanreChange={handleJanreChange} handleJanresListSlide={handleJanresListSlide} handleJanresListHide={handleJanresListHide} />
 							<SongsViewer songsToDisplay={songsToDisplay} handlePlay={handlePlay} handleSearch={handleSearch} handleAddToFavourite={handleAddToFavourite} handleJanresListToggle={handleJanresListToggle} />
 						</>
@@ -57,7 +54,7 @@ function Layout({ songsToDisplay, favSongs, topics, handlePlay, handlePlaylistOp
 							user ? 
 							user.playlists.map((playlist) => {
 								return(
-									<Route path={playlist.name} element={<Playlist playlist={playlist} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistDelete={handlePlaylistDelete} />} />
+									<Route path={playlist.name} element={<Playlist playlist={playlist} handlePlay={handlePlay} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistDelete={handlePlaylistDelete}  />} key={`${playlist.name}_route`} />
 								)
 							})
 							: null

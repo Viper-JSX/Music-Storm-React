@@ -111,10 +111,6 @@ header .showNavigation:hover{
     flex-grow: 1;
 }
 
-#navigation > *:last-child{
-    /*border-right: var(--standardBorderStyle);*/
-}
-
 #navigation > *:hover{
     color: white;
     background: rgba(10, 10, 10, 0.3);
@@ -222,10 +218,6 @@ header .showNavigation:hover{
 #homePageHeadingText .tinyText{
     display: block;
     text-align: left;
-}
-
-#homePageHeadingButtons{
-    
 }
 
 #startNowButton, #learnMoreButton{
@@ -500,41 +492,6 @@ header .showNavigation:hover{
     justify-content: flex-start;
 }
 
-#musicList{
-
-}
-
-/*#topicsList{
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    background: #222222;
-    border-top: var(--standardBorderStyle);
-    border-bottom: var(--standardBorderStyle);
-    display: flex;
-    overflow: auto;
-}
-
-#topicsList > :last-child{
-    border-right: var(--standardBorderStyle);
-}
-
-#topicsList > div{
-    min-width: 5rem; 
-    color: white;
-    text-align: center;
-    border-left: var(--standardBorderStyle);
-    overflow-x: auto;
-    cursor: pointer;
-}
-
-#topicsList > div:hover{
-    color: white;
-    background: #444444;
-    text-shadow: 0px 0px 10px blue;
-}
-
-*/
 
 #janresListAndSlideButtons{
     width: 100%;
@@ -573,10 +530,6 @@ header .showNavigation:hover{
     align-items: center;
 }
 
-#hideJanresList:hover{
-    
-}
-
 .janre{
     width: 20%;
     height: 100%;
@@ -605,10 +558,6 @@ header .showNavigation:hover{
 
 .janre:hover > .janreDarkeningWindow{
     background: rgba(10, 10, 10, 0.5);;
-}
-
-.janre:last-child{
-    /*border-right: none;*/
 }
 
 #janresListAndSlideButtons > #slideLeft{
@@ -657,10 +606,6 @@ header .showNavigation:hover{
     z-index: 0;*/
 }
 
-#openSongCreator > b{
-
-}
-
 #openSongCreator:hover{
     color: var(--highlightedBackgroundColor);
     background: var(--middleDarkBackgroundColor);
@@ -690,9 +635,6 @@ header .showNavigation:hover{
     border-color: var(--lightBackgroundColor);
 }
 
-#songsViewer audio{
-
-}
 
 .noSongsFoundText{
     width: 100%;
@@ -713,10 +655,6 @@ header .showNavigation:hover{
     color: var(--highlightedTextColor);
     background: var(--lightBackgroundColor);
     font-weight: 600;
-}
-
-#songSearchInput{
-
 }
 
 /*---Song creator---*/
@@ -752,14 +690,6 @@ header .showNavigation:hover{
     background: var(--middleDarkBackgroundColor);
 }
 
-
-.songJanreInput:hover{
-    /*color: var(--highlightedTextColor);
-    background: var(--darkBackgroundColor);*/
-}
-
-
-
 .songIconInput{
     display: none;
 }
@@ -791,21 +721,9 @@ header .showNavigation:hover{
     margin-bottom: 0.5rem;
 }
 
-#songNamePreview{
-
-}
-
-#songJanrePreview{
-
-}
-
 #songImagePreview{
     width: 300px;
     border-radius: 50%;
-}
-
-#songAudioPreview{
-
 }
 
 .saveChangesButton{
@@ -904,10 +822,6 @@ header .showNavigation:hover{
     cursor: pointer;
 }
 
-.song:first-child{
-    /*border-top: var(--standardBorderStyle);*/
-}
-
 .song .songTitle{
     text-align: center;
     flex-grow: 1;
@@ -968,10 +882,6 @@ header .showNavigation:hover{
 .songOptions[state="closed"] .options{
     height: 0px;
     border: none;
-}
-
-.toggleSongOptions{
-
 }
 
 .toggleSongOptions:hover{
@@ -1112,9 +1022,7 @@ header .showNavigation:hover{
     border-left: none;
 }
 
-#profileNavigation:not(.active){
-    
-}
+
 
 #profileNavigation > .active{
     background-color: var(--darkBackgroundColor);

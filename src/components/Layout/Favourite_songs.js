@@ -12,13 +12,6 @@ function FavouriteSongs({ favSongs, handlePlay, handleRemoveFromFavourite }){
 		return (<Navigate to="/authorization/login" state={{cameFrom: location.pathname}} />);
 	}
 
-	//useEffect(() => {
-	//	//if(!user){
-	//	//	navigate("/profile/authorization");
-	//	//}
-	//	return 0;
-	//}, [])
-
 	if(favSongs.length == 0){
 		return(
 			<div id="favouriteSongs">
@@ -31,7 +24,7 @@ function FavouriteSongs({ favSongs, handlePlay, handleRemoveFromFavourite }){
 		<div id="favouriteSongs">
 			{
 				favSongs.map((song) => {
-					return (<Song song={song} handlePlay={handlePlay} handleRemoveFromFavourite={handleRemoveFromFavourite} key={song.name} />)
+					return (<Song song={song} handlePlay={handlePlay} handleRemoveFromFavourite={handleRemoveFromFavourite} key={`${song.name}_in_favourites`} />)
 				})
 			}
 		</div>

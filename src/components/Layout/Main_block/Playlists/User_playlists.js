@@ -32,7 +32,7 @@ function UserPlaylists({ handlePlaylistCreate, handlePlaylistOpen, handleAddToPl
             <div id="userPlaylists">
                 {
                     user.playlists.map((playlist) => 
-                        <PlaylistOpener playlist={playlist} handlePlaylistOpen={handlePlaylistOpen} handleAddToPlaylist={handleAddToPlaylist} songToPlaylist={location?.state?.songToPlaylist} />
+                        <PlaylistOpener playlist={playlist} handlePlaylistOpen={handlePlaylistOpen} handleAddToPlaylist={handleAddToPlaylist} songToPlaylist={location?.state?.songToPlaylist} key={`${playlist.name}_playlist_opener`} />
                     )
                 }
             </div>

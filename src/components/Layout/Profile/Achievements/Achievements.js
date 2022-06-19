@@ -5,7 +5,7 @@ function Achievements({ userAchievements }){
 		<div id="achievements">
 			{
 				userAchievements.map((achievement) => 
-					<Achievement achievement={achievement} />
+					<Achievement achievement={achievement} key={achievement.name} />
 				)
 			}
 		</div>

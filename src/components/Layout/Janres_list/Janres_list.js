@@ -14,7 +14,7 @@ function JanresList({ janres, janresListIsVisible, handleJanreChange, handleJanr
 				<div id="janresList" ref={janresListRef}>
 					{
 						janres.map((janre, index) => 
-							<Janre janre={janre} handleJanreChange={handleJanreChange} handleJanresListHide={handleJanresListHide} />
+							<Janre janre={janre} handleJanreChange={handleJanreChange} handleJanresListHide={handleJanresListHide} key={`${janre.name}_janre`} />
 						)
 					}
 				</div>

@@ -1,4 +1,4 @@
-import './App_light.css';
+import './App.css';
 
 import { useState, useEffect, createContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,49 +7,14 @@ import appThemes from './various_things/themes';
 import users from './various_things/users.js';
 import songs from './various_things/songs.js';
 
+import { janres, about, news } from './various_things/init_app_data';
+
 import ThemeContext from './context/Theme_context.js';
 import UserContext from './context/User_context.js';
 import ErrorContext from './context/Error_context';
 import Layout from './components/Layout/Layout';
 import User from './Classes/User';
 import ErrorPopup from './components/Error/Error_popup';
-
-
-let janres = [
-    {name: "All", backgroundImage: require('./Files/Images/Janre_images/all.png')}, 
-    {name: "Rock", backgroundImage:  "https://rocknrollmetalart.files.wordpress.com/2015/01/rock-star.jpg"}, 
-    {name:"Jazz",backgroundImage: require('./Files/Images/Janre_images/jazz.png')/*"https://m.media-amazon.com/images/I/618MOXldDfL._SS500_.jpg"*/}, 
-    {name: "Bluse", backgroundImage: "https://image.shutterstock.com/image-illustration/musician-guitar-performer-blues-jazz-260nw-1209032083.jpg"}, 
-    {name: "Hip-Hop", backgroundImage: "https://images.all-free-download.com/images/graphiclarge/hip_hop_theme_vector_154134.jpg"}, 
-    {name: "Rap", backgroundImage: require('./Files/Images/Janre_images/rap.png')}, 
-    {name: "Clubnyak", backgroundImage: require('./Files/Images/Janre_images/clubnyak.png')}, 
-    {name: "Disco", backgroundImage: require('./Files/Images/Janre_images/disco.png')},
-    {name: "Rocki", backgroundImage: ""}, 
-];
-
-let topics = ["Top 100", "Summer", "For fun", "Relax", "For peace"];
-
-let about = {
-    copyright: "By Yura Shtefanko",
-    author: "Yura Shtefanko",
-    year: 2008,
-    description: "No illegal copy allowded"
-}
-
-let news = [
-    {
-        title: "New hit",
-        text: "A new world hit has been released yesterday at 20:00"
-    },
-    {
-        title: "New hit",
-        text: "A new world hit has been released yesterday at 20:00"
-    },
-    {
-        title: "New hit",
-        text: "A new world hit has been released yesterday at 20:00"
-    }
-];
 
 function getElementCoords(element){
     const box = element.getBoundingClientRect();
@@ -232,7 +197,7 @@ function App(){
         setSongsToDisplay(newList);
     }
 
-    function handleTagChange(topic){
+    /*function handleTagChange(topic){
         let newList = songs.filter((song) => {
             for(let i = 0; i < song.tags.length; i++){
                 if(song.tags[i].toLowerCase() == topic.toLowerCase()){
@@ -243,7 +208,7 @@ function App(){
         })
 
         setSongsToDisplay(newList);
-    }
+    }*/
 
     function handleJanreChange(janre){
         if(janre.name.toLowerCase() == "all"){
@@ -528,10 +493,8 @@ function App(){
 
                     songsToDisplay={songsToDisplay}
                     favSongs={user ? user.favSongs : []}
-                    topics={topics}
                     handlePlay={handlePlay}
-                    handlePlaylistOpen={handlePlaylistOpen}
-                    handleTagChange={handleTagChange} 
+                    handlePlaylistOpen={handlePlaylistOpen} 
                     handleAddToFavourite={handleAddToFavourite}
                     handleRemoveFromFavourite={handleRemoveFromFavourite}
 

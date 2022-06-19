@@ -23,20 +23,20 @@ function ChartGraph({ chartGraphLines, daysCountStartIndex, chartGraphMarkup, st
         <div className="chartGraph" ref={graphFieldRef}>
             <div className="xAxis">
                 {
-                    chartGraphMarkup.x.map((mark) => <div style={{left: `${mark.offsetLeft}px`}} >{mark.value}</div>)
+                    chartGraphMarkup.x.map((mark) => <div style={{left: `${mark.offsetLeft}px`}} key={`${mark.value}_x_mark`} >{mark.value}</div>)
                 }
             </div>
 
             <div className="yAxis">
                 {
-                    chartGraphMarkup.y.map((mark) => <div style={{bottom: `${mark.offsetBottom}px`}}>{mark.value}</div>)
+                    chartGraphMarkup.y.map((mark) => <div style={{bottom: `${mark.offsetBottom}px`}} key={`${mark.value}_y_mark`}>{mark.value}</div>)
                 }
             </div>
             {
                 //Select the last 7
                 chartGraphLines.map((line, index, lines) =>  {
 
-                    return (<GraphLine line={line} lineCountNumber={index} amountOfLines={lines.length} />);
+                    return (<GraphLine line={line} lineCountNumber={index} amountOfLines={lines.length} key={`${line.xPos}_${line.yPos}_${line.minutesValue}_graph_line`} />);
                  })
 
             }
