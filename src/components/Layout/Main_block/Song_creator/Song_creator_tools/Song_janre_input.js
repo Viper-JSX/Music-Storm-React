@@ -1,5 +1,4 @@
 function SongJanreInput({ songJanre, janres, handleSongJanreChange }){
-    console.log(songJanre, janres);
     return(
         <select className="songJanreInput" onChange={handleSongJanreChange} value={songJanre}>
             {

@@ -6,7 +6,6 @@ function Login({ handleLogin }){
 	const passwordRef = createRef();
 	const location = useLocation();
 
-	console.log(location);
 	return(
 		<form id="login">
 			<div className="inputs">

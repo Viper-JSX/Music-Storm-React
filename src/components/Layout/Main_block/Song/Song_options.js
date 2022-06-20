@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faCross, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faList, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function SongOptions({ children }){
     const [ optionState, setOptionState ] = useState("closed");
 
     function handleOpenClose(){
-        if(optionState == "closed"){
+        if(optionState === "closed"){
             setOptionState("opened");
             return;
         }
@@ -15,7 +15,7 @@ function SongOptions({ children }){
 
     return(
         <div className="songOptions" state={optionState} >
-            <button className="toggleSongOptions" onClick={handleOpenClose}>{optionState == "closed" ? <FontAwesomeIcon icon={faList}/> : <FontAwesomeIcon icon={faXmark}/>}</button>
+            <button className="toggleSongOptions" onClick={handleOpenClose}>{optionState === "closed" ? <FontAwesomeIcon icon={faList}/> : <FontAwesomeIcon icon={faXmark}/>}</button>
             <div className="options">
                 { children }
             </div>

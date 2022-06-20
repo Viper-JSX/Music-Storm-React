@@ -32,7 +32,6 @@ function findSongsToOffer(user){
         }
     });
 
-    console.log(songsToOffer)
 
     return songsToOffer
 };

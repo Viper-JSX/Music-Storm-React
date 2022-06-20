@@ -90,7 +90,6 @@ class User{
 			this.listenedJanres[janre] = 1;
 		}
 
-		console.log(this.listenedJanres)
 	};
 
 	addDayListeningRecord(recordDate, minutesValue){

@@ -24,15 +24,11 @@ function turnGraphPointsIntoLines(listeningData, chartGraphDimentions){
         lineWidth = Math.hypot(xDistance, yDistance);
         lineSlope = -Math.atan(yDistance / xDistance);
 
-        console.log(listeningData[i].minutesValue, graphMaxYValue,  lineYPos);
-
         let newLine = new GraphLine(lineXPos, lineYPos, lineWidth, lineSlope, listeningData[i].minutesValue);
-        //console.log(newLine)
         graphLines.push(newLine);
     }
 
     return {graphLines, graphXMarkLength, graphYMarkLength, graphYMarkValue: graphMaxYValue / 10};
-    //console.log(chartGraphDimentions)
 };
 
 export default turnGraphPointsIntoLines;

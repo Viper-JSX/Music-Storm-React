@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 function AuthForm(){
 	const location = useLocation();
-	console.log(location)
 	return(
 		<div id="authFormWrapper">
 			<div id="authForm">

@@ -5,7 +5,6 @@ import HideNavigation from './Hide_navigation';
 
 
 function Navigation({ navigationIsVisible, handleNavigationHide }){
-	console.log(navigationIsVisible ? "visible" : "hidden")
 	return(
 		<nav id="navigation" className={navigationIsVisible ? "visible" : "hidden"}>
 			{/*

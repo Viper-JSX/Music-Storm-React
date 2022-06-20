@@ -43,8 +43,6 @@ function WeeklyMusicListenintChart(){
         for(let i = 0; i < 10 + 1; i++){
             yMarkup.push({ offsetBottom: graphYMarkLength * i, value: graphYMarkValue * i });
         }
-        //yMarkup.reverse();
-        console.log(graphYMarkValue);
 
         setChartGraphMarkup({ x: xMarkup, y: yMarkup });
         setChartGraphLines(graphLines);

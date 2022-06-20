@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useState, useEffect, createContext, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import appThemes from './various_things/themes';
@@ -15,11 +15,6 @@ import ErrorContext from './context/Error_context';
 import Layout from './components/Layout/Layout';
 import User from './Classes/User';
 import ErrorPopup from './components/Error/Error_popup';
-
-function getElementCoords(element){
-    const box = element.getBoundingClientRect();
-    console.log(box.top)
-}
 
 function App(){
     let playerRef = useRef(null);
@@ -50,7 +45,7 @@ function App(){
 
 
     function handleBodyScroll(event){
-        if(window.location.pathname != "/" && window.location.pathname != ""){ //THe user is not on main page
+        if(window.location.pathname !== "/" && window.location.pathname !== ""){ //THe user is not on main page
             return;
         }
         const introductionSection = document.getElementById("introductionSection");
@@ -61,15 +56,9 @@ function App(){
         const aboutUsSectionParagraphs = aboutUsSection.querySelector(".paragraphs");
         const aboutUsSectionParagraphBookmarks = aboutUsSectionParagraphs.querySelectorAll(".paragraphBookmark");
         const aboutUsSectionSideImage = aboutUsSection.querySelector("#aboutUsSectionSideImage");
-
-
-        const introductionSectionYPosition = getElementCoords(introductionSection);
-        const aboutUsSectionPosition = 0;
         
         const introductionSectionBox = introductionSection.getBoundingClientRect();
         const aboutUsSectionBox = aboutUsSection.getBoundingClientRect();
-
-        console.log(introductionSectionBox.top - introductionSectionBox.height/4);
 
         if(introductionSectionBox.top - introductionSectionBox.height / 4 <= 0){
             introductionSectionImage.classList.remove("hidden");
@@ -82,7 +71,6 @@ function App(){
         if(aboutUsSectionBox.top - aboutUsSectionBox.height / 4 <= 0){
             aboutUsSectionSideImage.classList.remove("hidden");
             aboutUsSectionSideImage.classList.add("visible");
-            //console.log("hide")
 
             aboutUsSectionParagraphs.classList.remove("hidden");
             aboutUsSectionParagraphs.classList.add("visible");
@@ -106,7 +94,7 @@ function App(){
 
     function handlePlay(song){
        for(let i = 0; i < songs.length; i++){
-            if(songs[i].src == song.src){
+            if(songs[i].src === song.src){
                 songs[i].isPlaying = !songs[i].isPlaying;
                 setPlayingSong({...songs[i]})
             }
@@ -116,7 +104,7 @@ function App(){
             }
         }
 
-        if((song.src) && playingSong.src != song.src){
+        if((song.src) && playingSong.src !== song.src){
             setPlayingSong({...song});
             playerRef.current.load();
         }
@@ -141,7 +129,7 @@ function App(){
 
     function handleControlPlay(){
         for(let i = 0; i < songs.length; i++){
-            if(songs[i].src == playerRef.current.src){
+            if(songs[i].src === playerRef.current.src){
                 songs[i].isPlaying = !songs[i].isPlaying;
                 setPlayingSong({...songs[i]})
             }
@@ -178,7 +166,6 @@ function App(){
             
             document.getElementById("playerVolumeBar").style.width = `${Math.round(clickedProgress * 100)}%`;
             document.getElementById("volumeBarPercentIndicator").textContent = `${Math.round(clickedProgress * 100)}%`;
-            //console.log(clickedProgress)
         }
 
         event.target.onmouseup = function(anEvent){
@@ -187,8 +174,7 @@ function App(){
 
     }
 
-    function handleSearch(event){     
-        console.log("Search")   
+    function handleSearch(event){      
         let searchTerm = event.target.value.toLowerCase();
         let newList = songs.filter((song) => {
             return song.name.toLowerCase().indexOf(searchTerm) >= 0;
@@ -200,7 +186,7 @@ function App(){
     /*function handleTagChange(topic){
         let newList = songs.filter((song) => {
             for(let i = 0; i < song.tags.length; i++){
-                if(song.tags[i].toLowerCase() == topic.toLowerCase()){
+                if(song.tags[i].toLowerCase() === topic.toLowerCase()){
                     return 1 > 0;
                     break;
                 }
@@ -211,46 +197,34 @@ function App(){
     }*/
 
     function handleJanreChange(janre){
-        if(janre.name.toLowerCase() == "all"){
+        if(janre.name.toLowerCase() === "all"){
             setSongsToDisplay(songs);
             return;
         }
 
         let newList = songs.filter((song) => {
-            return song.janre.toLowerCase() == janre.name.toLowerCase();
+            return song.janre.toLowerCase() === janre.name.toLowerCase();
         })
 
         setSongsToDisplay(newList)
     }
 
     function handleThemeChange(themeSwitchSliderRef){
-        //let newTheme = event.target.checked ? appThemes.dark : appThemes.light;
-        //setTheme(newTheme);
-        if(theme.name == "light"){
-            console.log("Switching to dark");
+
+        if(theme.name === "light"){
             setTheme(appThemes.dark);
             themeSwitchSliderRef.current.style.marginLeft = "50%";
         }
-        else if(theme.name == "dark"){
-            console.log("Switching to light");
+        else if(theme.name === "dark"){
             setTheme(appThemes.light);
             themeSwitchSliderRef.current.style.marginLeft = "0";
         }
-
-        console.log(appThemes)
-
-        //if(event.target.checked){
-        //    document.getElementById("cssStyles").href = "App_dark.css";
-        //}
-        //else{
-        //    document.getElementById("cssStyles").href = "App_light.css";
-        //}
     }
 
     function handleDurationProgress(event){
         let progressBar = (event.target.currentTime / event.target.duration) * 100;
 
-        if(event.target.currentTime == event.target.duration){
+        if(event.target.currentTime === event.target.duration){
             setPlayingSong(
                 {
                     ...playingSong,
@@ -258,7 +232,7 @@ function App(){
                 }
             )
             for(let i = 0; i < songs.length; i++){
-                if(songs[i].name == playingSong.name){
+                if(songs[i].name === playingSong.name){
                     songs[i].isPlaying = false;
                     break;
                 }
@@ -285,23 +259,18 @@ function App(){
 
     
     function handleJanresListSlide({ side, janresListRef, event }){
-        let marginLeft = getComputedStyle(janresListRef.current).marginLeft;
         event.target.style.background = "var(--highlightedBackgroundColor)";
         setTimeout(() => event.target.style.background = "var(--middleDarkBackgroundColor)", 200)
 
-        if(side == "left" && displayJanresRange.l > 0){
+        if(side === "left" && displayJanresRange.l > 0){
             setDisplayJanresRange({ l: --displayJanresRange.l, h: --displayJanresRange.h});
         }
-        else if(side == "right" && displayJanresRange.l < janres.length - 5){ //5 is number of displayed janres
+        else if(side === "right" && displayJanresRange.l < janres.length - 5){ //5 is number of displayed janres
             setDisplayJanresRange({ l: ++displayJanresRange.l, h: ++displayJanresRange.h + 1});
         }
         janresListRef.current.style.marginLeft = `${displayJanresRange.l * -janresListRef.current.querySelector("div").offsetWidth}px`;
 
     };
-
-    function handlePlaylistOpen(playlist){
-        console.log(playlist);
-    }
 
     function handleAddToFavourite(song){
         if(!user){
@@ -310,8 +279,7 @@ function App(){
         }
 
         for(let i = 0; i < user.favSongs.length; i++){
-            if(user.favSongs[i].name == song.name){
-				console.log("Already in favs")
+            if(user.favSongs[i].name === song.name){
             	showError("Already in favs");
                 return;
             }
@@ -333,17 +301,15 @@ function App(){
             return prevUser;
         });
 
-        setForceUpdateState(new Object);
+        setForceUpdateState({});
         //localStorage.setItem("user", JSON.stringify(user)); //Local storage does not copy methods as for me
     };
 
     function handlePlaylistCreate(playlistName){
-        console.log("Creating playlist", playlistName);
         let playlistExists = false;
         
         for(let i = 0; i < user.playlists.length; i++){
-            console.log(user.playlists[i].name, playlistName)
-            if(user.playlists[i].name == playlistName){
+            if(user.playlists[i].name === playlistName){
                 playlistExists = true;
                 break;
             }
@@ -362,7 +328,6 @@ function App(){
     }
 
     function handlePlaylistDelete(playlistName){
-        console.log("Deleting", playlistName);
         user.deletePlaylist(playlistName);
         setForceUpdateState({}); //To start render
         navigate("/music/playlists");
@@ -371,10 +336,10 @@ function App(){
     function handleAddToPlaylist({ songToPlaylist, playlistName }){
         //check if song is already in playlist
         for(let i = 0; i < user.playlists.length; i++){
-            if(user.playlists[i].name.toLowerCase() == playlistName.toLowerCase()){
+            if(user.playlists[i].name.toLowerCase() === playlistName.toLowerCase()){
                 let playlist = user.playlists[i];
                 for(let i = 0; i < playlist.songs.length; i++){
-                    if(playlist.songs[i].name == songToPlaylist.name){
+                    if(playlist.songs[i].name === songToPlaylist.name){
                         showError("Song already in playlist");
                         return;
                     }
@@ -391,7 +356,7 @@ function App(){
 
     function handleRemoveFromPlaylist({ playlistName, songName }){
         for(let i = 0; i < user.playlists.length; i++){
-            if(user.playlists[i].name == playlistName){
+            if(user.playlists[i].name === playlistName){
                 user.playlists[i].removeSong(songName);
                 setForceUpdateState(user);
                 break;
@@ -404,7 +369,7 @@ function App(){
         let userFound = false;
 
         for(let i = 0; i < users.length; i++){
-            if(users[i].login == login && users[i].password == password){
+            if(users[i].login === login && users[i].password === password){
                 setUser(users[i]);
                 navigate(cameFrom);
                 userFound = true;
@@ -425,7 +390,7 @@ function App(){
         event.preventDefault();
 
         for(let i = 0; i < users.length; i++){
-            if(users[i].login.toLowerCase() == login.toLowerCase()){
+            if(users[i].login.toLowerCase() === login.toLowerCase()){
                 showError(`User '${users[i].login}' already exists`);
                 return;
             }
@@ -446,11 +411,9 @@ function App(){
 
         songs.push(newSong);
         setSongsToDisplay(songs.slice(0, 10));
-        console.log("Create", newSong);
     }
 
     function handleSongEdit({ editedSong, oldSongName }){
-        console.log("Edit", editedSong, oldSongName);
         if(!editedSong.name || !editedSong.janre || !editedSong.src){
             showError("Fill all the fields");
             return;
@@ -493,8 +456,7 @@ function App(){
 
                     songsToDisplay={songsToDisplay}
                     favSongs={user ? user.favSongs : []}
-                    handlePlay={handlePlay}
-                    handlePlaylistOpen={handlePlaylistOpen} 
+                    handlePlay={handlePlay} 
                     handleAddToFavourite={handleAddToFavourite}
                     handleRemoveFromFavourite={handleRemoveFromFavourite}
 

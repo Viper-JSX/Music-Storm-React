@@ -1,7 +1,6 @@
 import Paragraph from "./Paragraph";
 
 function Paragraphs({ homePageHasBeenScrolled }){
-    console.log(homePageHasBeenScrolled)
     return(
         <div id="aboutUsSectionParagraphs" className={`paragraphs ${homePageHasBeenScrolled ? "visible" : "hidden"}`}>
             <Paragraph bookmarkTitle={"About us"} homePageHasBeenScrolled={homePageHasBeenScrolled}>lorem loadlorem loadlorem loadlorem loadlorem loadlorem loadlorem loadvlorem loadlorem load</Paragraph>

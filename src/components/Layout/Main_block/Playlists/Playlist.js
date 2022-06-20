@@ -1,4 +1,3 @@
-import songs from "../../../../various_things/songs";
 import Song from "../Song/Song";
 
 function Playlist({ playlist = { name: "", songs: []}, handlePlay, handleRemoveFromPlaylist, handlePlaylistDelete }){

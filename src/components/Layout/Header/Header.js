@@ -14,7 +14,6 @@ function Header({ handleThemeChange }){
 
 	function handleNavigationHide(){
 		setNavigationIsVisible(false);
-		console.log("hiding")
 	}
 
 	return(

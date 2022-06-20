@@ -16,25 +16,18 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
 
     const oldSongName = useMemo(() => song.name.split("").join(""));
 
-    //console.log(song)//.state.mode)
-    console.log(handleSongEdit, handleSongCreate)
-
     function handleSongNameChange(event){
         setSong((prevSong) => ({...prevSong, name: event.target.value}));
-        console.log(song);
     }
 
     function handleSongJanreChange(event){
-        console.log(event.target.value);
         setSong((prevSong) => ({...prevSong, janre: event.target.value}));
-        console.log(song);
     }
 
     function handleSongFileChange(event){
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = (readerEvent) => {
-            console.log("File", readerEvent.srcElement.result);
             setSong((prevSong) => ({...prevSong, src: readerEvent.srcElement.result}));
         }
     }
@@ -43,7 +36,6 @@ function SongCreator({ janres, handleSongCreate, handleSongEdit }){
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = (readerEvent) => {
-            console.log("Icon", readerEvent.srcElement.result);
             setSong((prevSong) => ({...prevSong, iconSrc: readerEvent.srcElement.result}));
         }
     }
