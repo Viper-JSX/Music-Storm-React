@@ -1014,7 +1014,6 @@ header .showNavigation:hover{
     text-decoration: none;
     border-top: var(--standardBorderStyle);
     border-bottom: var(--standardBorderStyle);
-    /*border-left: var(--standardBorderStyle);*/
     flex-grow: 1;
 }
 
@@ -1033,8 +1032,6 @@ header .showNavigation:hover{
 }
 
 #profileContent{
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1188,8 +1185,18 @@ header .showNavigation:hover{
 }
 
 #aboutWindow{
+    height: calc(100vh - 3rem - 1.5rem); /*viewport - header - navigation*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--standardLightTextColor);
     text-align: center;
+}
+
+#aboutWindow .designedBy{
+
+    word-wrap: normal;
+    white-space: nowrap;
 }
 
 #authFormWrapper{
