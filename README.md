@@ -19,4 +19,5 @@ At the top there is a janres list where you can select which janre you would lik
 * React Router
 
 # How to run
-Open the app in your code editor and enter 'npn-start' and app will open in your default browser
+* Open the link: https://music-storm-by-viper-jsx.netlify.app
+* Or open the app in your code editor and enter 'npn-start' and app will open in your default browser
